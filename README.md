@@ -10,7 +10,7 @@
 - Perform POST, PUT, and DELETE requests to an API to modify data.
 
 
-## Framing
+## Framing (5 mins)
 
 **What is an API?**
 >Basically, an API is a service that provides raw data for public use.
@@ -22,6 +22,10 @@ APIs publish data for public use. As third-party software developers, we can acc
 **Why do we care?**
 
 Because why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere..
+
+**Why now?**
+
+As we move into building single page applications, now is the perfect time to start understanding how to obtain data on the client side, and then render it on the browser.
 
 ## API Exploration
 
@@ -47,7 +51,7 @@ Form pairs and explore the API links in the below table. Record any observations
 
 Sometimes thats's all we need. All this information, from all these browsers and all these servers, has to travel through the network. That's almost certainly the slowest part of the request cycle. We want to minimize the bits. There are times when we just need the data. For those times, we want a concise format.   
 
-## What is serialized data?
+### What is serialized data? (10 mins)
 
 All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is *structured data*, as in: native arrays and hashes. Thus, native data structures can be *serialized* into a string representation of the data. This string can be transmitted, and then parsed back into data by another web agent.  
 
@@ -83,7 +87,7 @@ There are **two** major serialized data formats:
 * [http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL)
 * [http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL)
 
-## Where Do We Find APIs?
+## Where Do We Find APIs? (5 mins)
 
 APIs are published everywhere. Chances are good that most major content sources you follow online publish their data in some type of serialized format. Heck, [even Marvel publishes an API](http://developer.marvel.com/documentation/getting_started). Look around for a "Developers" section on major websites, or ask the Google Answer-Bot.
 
@@ -94,7 +98,7 @@ APIs are published everywhere. Chances are good that most major content sources 
 
 Okay... try the [Programmable Web API Directory](http://www.programmableweb.com/apis/directory) or the [Public APIs Directory](http://www.publicapis.com/).
 
-## What Is An API Key?
+## What Is An API Key? (5 mins)
 
 While the majority of APIs are free to use, many of them require an API "key" that identifies the developer requesting data access. This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.
 
@@ -106,7 +110,7 @@ While the majority of APIs are free to use, many of them require an API "key" th
 
 **It is very important that you not push your API keys to a public Github repo.**
 
-## AJAX
+## AJAX (5 mins)
 
 **So we know what an API is, now what?**
 
@@ -115,9 +119,11 @@ How can we use an API to dynamically manipulate the DOM with the given data? In 
 How do we do this?
 *AJAX* (Asynchronous Javascript and XML) is the method through which we are able to make the usual HTTP requests: 'GET' 'POST' 'PUT' 'PATCH' 'DELETE' (depending on the access we have) to a given API.
 
+## Break (10 mins)
+
 ## GET data from an external API using AJAX
 
-### I Do: GET example
+### I Do: GET example (10 mins)
 
 Let's build a very simple app that posts a movie title and poster after searching for it!
 [OMDB movie search](https://github.com/joe-gz/omdb-api)
@@ -164,7 +170,7 @@ Following `datatype`, there are three methods that we call promises.  In short, 
 
 **Bonus**: you'll notice that if you simply search for "Star Wars", it doesn't really work! why is that? Is there another url you can use from OMDB API that would return all Star Wars movies?
 
-### You Do: GET from Tunr
+### You Do: GET from Tunr (25 mins)
 
 Fork and clone another [Tunr](https://github.com/ga-wdi-exercises/tunr_rails_ajax) repo!
 Once you've cloned the repo, `cd` into it and run the usual commands...
@@ -177,7 +183,7 @@ $ rake db:create db:migrate db:seed
 
 We can now use `$.ajax()` to make asynchronous HTTP requests to our Tunr app! Let's go ahead and create a new Artists controller action and corresponding view: `test_ajax`
 
-#### Setting up a view to test AJAX with (10/85)
+#### Setting up a view to test AJAX with
 Let's update our routes in `config/routes.rb` for a new route to test all of our AJAX calls in:
 
 ```ruby
@@ -205,7 +211,7 @@ Create `app/views/artists/test_ajax.html.erb` and place the following content:
 </ul>
 ```
 
-#### AJAX GET (5/90)
+#### AJAX GET
 Great, everything's working. Let's try doing a `GET` request to our API. In `app/assets/javascripts/application.js`:
 
 ```js
@@ -232,7 +238,7 @@ $(document).ready(function(){
 
 ## AJAX and the rest of CRUD
 
-### I Do: POST a new artist
+### I Do: POST a new artist (15 mins)
 
 Let's catch up with adding the artists to the browser when we click GET.
 Go ahead and add the following to the ajax GET request in the `.done` promise:
@@ -307,12 +313,16 @@ $(".test_ajax_post").on("click", function(){
   })
 ```
 
-### You Do: Finish Tunr Artist CRUD!
+## Break (10 mins)
+
+### You Do: Finish Tunr Artist CRUD (30 mins)
 > answers at the end of lesson plan
 
 Make a PUT request that updates the artist with an ID of 3 with any information you add into the input fields.
 
 Make a DELETE request that will delete the artist with an ID of 4
+
+*Note*: If you finish early, there are bonuses galore
 
 ### Bonus You Do: CRUD for Songs
 
@@ -323,7 +333,7 @@ Make a DELETE request that will delete the artist with an ID of 4
 * Create a button or link for each artist that submits an AJAX `DELETE` request to delete an artist in the database. Update the view in the client side accordingly.
 * Create an AJAX request in another app you've created (e.g., projects, Scribble). Be sure to make sure your controller actions respond to JSON.
 
-## Conclusion (5 minutes / 2:40)
+## Conclusion (5 mins)
 
 - What is an API?
 - Why are APIs useful/important?
