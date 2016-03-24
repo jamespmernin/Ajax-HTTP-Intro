@@ -162,7 +162,7 @@ Following `datatype`, there are three methods that we call promises.  In short, 
 * `.fail` requires a callback that determines what we do after an unsuccessful AJAX call
 * `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call
 
-*Bonus*: you'll notice that if you simply search for "Star Wars", it doesn't really work! why is that? Is there another url you can use from OMDB API that would return all Star Wars movies?
+**Bonus**: you'll notice that if you simply search for "Star Wars", it doesn't really work! why is that? Is there another url you can use from OMDB API that would return all Star Wars movies?
 
 ### You Do: GET from Tunr
 
@@ -171,6 +171,7 @@ Once you've cloned the repo, `cd` into it and run the usual commands...
 
 ```bash
 $ bundle install
+$ rake db:drop
 $ rake db:create db:migrate db:seed
 ```
 
@@ -198,10 +199,14 @@ Create `app/views/artists/test_ajax.html.erb` and place the following content:
 <div class="test_ajax_post">AJAX POST!</div>
 <div class="test_ajax_put">AJAX PUT!</div>
 <div class="test_ajax_delete">AJAX DELETE!</div>
+
+<ul class = "artists">
+
+</ul>
 ```
 
 #### AJAX GET (5/90)
-Great, everything's working. Let's try doing a `GET` request to our API like we did with the Weather underground API. In `app/assets/javascripts/application.js`:
+Great, everything's working. Let's try doing a `GET` request to our API. In `app/assets/javascripts/application.js`:
 
 ```js
 $(document).ready(function(){
@@ -221,20 +226,109 @@ $(document).ready(function(){
 
 > If we access the response object, we can see all of the artists that were seeded in the database. Inside the done promise, we can interact with and display all the contents of the response.
 
-*Bonus*: Render the data on the browser!
+**Bonus**: Render the data on the browser!
+
 *Hint*: similar to the movie app, check the response
 
 ## AJAX and the rest of CRUD
 
 ### I Do: POST a new artist
 
+Let's catch up with adding the artists to the browser when we click GET.
+Go ahead and add the following to the ajax GET request in the `.done` promise:
+```js
+console.log(response)
+for (var i = 0; i<response.length;i++){
+  $("ul.artists").append("<li><a href='/artists/" + response[i].id + "'>" + response[i].name + "</a></li>")
+}
+```
+
+Now let's update our view to include some input fields in `app/views/artists/test_ajax.html.erb`:
+
+```html
+<!-- div attached to event handler -->
+<div class="test_ajax_get">AJAX GET!</div>
+
+<!-- form for ajax post and put request -->
+<label>Name:</label>
+<input class="name" type="text">
+<label>Photo_url:</label>
+<input class="photo_url" type="text">
+<label>Nationality:</label>
+<input class="nationality" type="text">
+
+<!-- divs attached to event handlers -->
+<div class="test_ajax_post">AJAX POST!!</div>
+<div class="test_ajax_put">AJAX PUT!!</div>
+<div class="test_ajax_delete">AJAX DELETE!!</div>
+
+```
+
+#### AJAX Post (10/110)
+Let's try and create an artist using AJAX. Let's update our `app/assets/javascripts/application.js`...
+
+```javascript
+$(".test_ajax_post").on("click", function(){
+  $.ajax({
+    type: 'POST',
+    data: {artist: {photo_url: "www.google.com", name: "bob", nationality: "bob"}},
+    dataType: 'json',
+    url: "http://localhost:3000/artists"
+  }).done(function(response) {
+    console.log(response);
+  }).fail(function(response){
+    console.log("Ajax get request failed");
+  })
+})
+```
+
+As you can see, every time we click on this button another artist is generated. This is awesome! We can now create things in our database on the client side. But there's a problem here: we've hardcoded the attributes.
+
+**Question for you:** how might we be able to dynamically acquire data on the client side instead of hardcoding values?
+
+**Answer for you**
+
+```js
+$(".test_ajax_post").on("click", function(){
+    var name = $(".name").val()
+    var photoUrl = $(".photo_url").val()
+    var nationality = $(".nationality").val()
+    $.ajax({
+      type: 'POST',
+      data: {artist: {photo_url: photoUrl, name: name, nationality: nationality}},
+      dataType: 'json',
+      url: "http://localhost:3000/artists"
+    }).done(function(response) {
+      console.log(response)
+      $("ul.articles").append("<li><a href='/artists/" + response.id + "'>" + response.name + "</a></li>")
+    }).fail(function(response){
+      console.log("ajax post request failed")
+    })
+  })
+```
+
 ### You Do: Finish Tunr Artist CRUD!
+> answers at the end of lesson plan
+
+Make a PUT request that updates the artist with an ID of 3 with any information you add into the input fields.
+
+Make a DELETE request that will delete the artist with an ID of 4
 
 ### Bonus You Do: CRUD for Songs
 
+### Super Bonuses
+
+* Create a button or link that, when clicked, creates inline editing for an artist.
+* Create a button that submits an AJAX `PUT` request to update that artist in the database. Change the view on the client side, if need be.
+* Create a button or link for each artist that submits an AJAX `DELETE` request to delete an artist in the database. Update the view in the client side accordingly.
+* Create an AJAX request in another app you've created (e.g., projects, Scribble). Be sure to make sure your controller actions respond to JSON.
+
 ## Conclusion (5 minutes / 2:40)
 
-Review Learning Objectives
+- What is an API?
+- Why are APIs useful/important?
+- What is AJAX?
+
 
 ## Hungry for More?
 
@@ -260,3 +354,40 @@ And here's an example of an unsuccessful `403 Forbidden` API call. Why did it fa
 * [Postman](https://www.getpostman.com/)
 * [Intro to APIs](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
 * [Practice with APIs](https://github.com/ga-dc/weather_teller)
+
+
+## Artist PUT/DELETE code
+
+```js
+// ajax put
+$(".test_ajax_put").on("click", function(){
+  var name = $(".name").val()
+  var photoUrl = $(".photo_url").val()
+  var nationality = $(".nationality").val()
+  $.ajax({
+    type: 'PUT',
+    data:{artist: {photo_url: photoUrl, name: name, nationality: nationality}},
+    dataType: 'json',
+    url: "http://localhost:3000/artists/6"
+  }).done(function(response){
+    console.log(response)
+  }).fail(function(){
+    console.log("failed to update")
+  })
+})
+
+// ajax delete
+$(".test_ajax_delete").on("click", function(){
+  $.ajax({
+    type: 'DELETE',
+    dataType: 'json',
+    url: "http://localhost:3000/artists/3"
+  }).done(function(response){
+    console.log("DELETED")
+    console.log(response)
+  }).fail(function(){
+    console.log("failed to delete")
+  })
+})
+})
+```
