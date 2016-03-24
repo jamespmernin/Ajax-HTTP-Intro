@@ -110,6 +110,7 @@ While the majority of APIs are free to use, many of them require an API "key" th
 * With key: [http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC](http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC)
 
 **It is very important that you not push your API keys to a public Github repo.**
+> Check out [Figaro](https://github.com/laserlemon/figaro) or research some additional ways to hide your keys
 
 ## AJAX (5 mins)
 
@@ -168,8 +169,6 @@ Following `datatype`, there are three methods that we call promises.  In short, 
 * `.done` requires a callback that determines what we do after a successful AJAX call
 * `.fail` requires a callback that determines what we do after an unsuccessful AJAX call
 * `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call
-
-**Bonus**: you'll notice that if you simply search for "Star Wars", it doesn't really work! why is that? Is there another url you can use from OMDB API that would return all Star Wars movies?
 
 ### You Do: GET from Tunr (25 mins)
 
@@ -241,14 +240,15 @@ $(document).ready(function(){
 
 ### I Do: POST a new artist (15 mins)
 
-Let's catch up with adding the artists to the browser when we click GET.
-Go ahead and add the following to the ajax GET request in the `.done` promise:
+Let's go ahead and add the following to the ajax GET request in the `.done` promise:
 ```js
 console.log(response)
 for (var i = 0; i<response.length;i++){
   $("ul.artists").append("<li><a href='/artists/" + response[i].id + "'>" + response[i].name + "</a></li>")
 }
 ```
+* what is this doing?
+This allows us to add the artists to the browser when we click GET.
 
 Now let's update our view to include some input fields in `app/views/artists/test_ajax.html.erb`:
 
@@ -326,6 +326,12 @@ Make a DELETE request that will delete the artist with an ID of 4
 *Note*: If you finish early, there are bonuses galore
 
 ### Bonus You Do: CRUD for Songs
+
+### More Bonus: Movie Search
+
+Go through the process of creating the movie search app from the first example.
+
+You'll notice that if you simply search for "Star Wars", it doesn't really work! why is that? Is there another url you can use from OMDB API that would return all Star Wars movies?
 
 ### Super Bonuses
 
