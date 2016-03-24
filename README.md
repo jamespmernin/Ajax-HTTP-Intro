@@ -3,9 +3,10 @@
 ## Learning Objectives
 
 - Describe what an API is, and why we might use one.
+- Understand the format of API data
 - Explain the common role of JSON on the web.
-- Use jQuery $.ajax() method to make asynchronous GET requests for data.
-- Use jQuery's 'promise-like' methods to handle AJAX responses asynchronously.
+- Use jQuery $.ajax() method to make GET requests for data.
+- Use jQuery's 'promise-like' methods to handle AJAX responses.
 - Render new HTML content using data loaded from an Ajax request.
 - Perform POST, PUT, and DELETE requests to an API to modify data.
 
@@ -288,7 +289,7 @@ $(".test_ajax_post").on("click", function(){
 })
 ```
 
-As you can see, every time we click on this button another artist is generated. This is awesome! We can now create things in our database on the client side. But there's a problem here: we've hardcoded the attributes.
+As you can see, every time we click on this button another artist is generated. This is awesome! We can now POST things to our database on the client side. But there's a problem here: we've hardcoded the attributes.
 
 **Question for you:** how might we be able to dynamically acquire data on the client side instead of hardcoding values?
 
