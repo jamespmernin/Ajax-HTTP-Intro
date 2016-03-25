@@ -42,7 +42,6 @@ Form pairs and explore the API links in the below table. Record any observations
 | API | Sample URL |
 |-----|------------|
 | **[This for That](http://itsthisforthat.com/)** | http://itsthisforthat.com/api.php?json |
-| **[iTunes](https://www.apple.com/itunes/affiliates/resources/documentation/itunes-store-web-service-search-api.html)** | http://itunes.apple.com/search?term=adele |
 | **[Giphy](https://github.com/Giphy/GiphyAPI)** | http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC |
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
 | **[StarWars](http://swapi.co/)** | http://swapi.co/api/people/3 |
@@ -170,7 +169,7 @@ Following `datatype`, there are three methods that we call promises.  In short, 
 * `.fail` requires a callback that determines what we do after an unsuccessful AJAX call
 * `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call
 
-### You Do: GET from Tunr (25 mins)
+### You Do: GET from Tunr (20 mins)
 
 Fork and clone another [Tunr](https://github.com/ga-wdi-exercises/tunr_rails_ajax) repo!
 Once you've cloned the repo, `cd` into it and run the usual commands...
@@ -236,6 +235,8 @@ $(document).ready(function(){
 
 *Hint*: similar to the movie app, check the response
 
+### Review (5 mins)
+
 ## AJAX and the rest of CRUD
 
 ### I Do: POST a new artist (15 mins)
@@ -271,7 +272,7 @@ Now let's update our view to include some input fields in `app/views/artists/tes
 
 ```
 
-#### AJAX Post (10/110)
+#### AJAX Post (10 mins)
 Let's try and create an artist using AJAX. Let's update our `app/assets/javascripts/application.js`...
 
 ```javascript
@@ -327,18 +328,18 @@ Make a DELETE request that will delete the artist with an ID of 4
 
 ### Bonus You Do: CRUD for Songs
 
-### More Bonus: Movie Search
-
-Go through the process of creating the movie search app from the first example.
-
-You'll notice that if you simply search for "Star Wars", it doesn't really work! why is that? Is there another url you can use from OMDB API that would return all Star Wars movies?
-
 ### Super Bonuses
 
 * Create a button or link that, when clicked, creates inline editing for an artist.
 * Create a button that submits an AJAX `PUT` request to update that artist in the database. Change the view on the client side, if need be.
 * Create a button or link for each artist that submits an AJAX `DELETE` request to delete an artist in the database. Update the view in the client side accordingly.
 * Create an AJAX request in another app you've created (e.g., projects, Scribble). Be sure to make sure your controller actions respond to JSON.
+
+### More Bonus: Movie Search
+
+Go through the process of creating the movie search app from the first example.
+
+You'll notice that if you simply search for "Star Wars", it doesn't really work! why is that? Is there another url you can use from OMDB API that would return all Star Wars movies?
 
 ## Conclusion (5 mins)
 
