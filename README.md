@@ -161,7 +161,7 @@ But, that is not all we need to complete the request. The AJAX method also retur
 .done ( function(response){
   console.log(response);
   // call movie function below to append movie titles
-  movie(response);
+  // appendMovie(response);
 })
 ```
 * `.done` requires a callback that determines what we do after a successful AJAX call.
