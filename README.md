@@ -391,6 +391,7 @@ And here's an example of an unsuccessful `403 Forbidden` API call. Why did it fa
 * [Postman](https://www.getpostman.com/)
 * [Intro to APIs](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
 * [Practice with APIs](https://github.com/ga-dc/weather_teller)
+* [Beautify your JSON in Chrome](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en)
 
 
 ## Artist PUT/DELETE code
