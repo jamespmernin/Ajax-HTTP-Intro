@@ -103,7 +103,7 @@ Okay... try the [Programmable Web API Directory](http://www.programmableweb.com/
 
 While the majority of APIs are free to use, many of them require an API "key" that identifies the developer requesting data access. This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.
 
-**Try hitting the Giphy API...**
+**Try hitting the [Giphy](https://api.giphy.com/) API...**
 
 * No key: [http://api.giphy.com/v1/gifs/search?q=funny+cat](http://api.giphy.com/v1/gifs/search?q=funny+cat)
 
