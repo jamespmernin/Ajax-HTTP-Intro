@@ -141,14 +141,6 @@ $.ajax({
   url: url,
   type: "GET",
   dataType: "json"
-}).done ( function(response){
-  console.log(response);
-  // call movie function below to append movie titles
-  movie(response);
-}).fail ( function (){
-  console.log("fail");
-}).always( function(){
-  console.log("Something happens");
 })
 ```
 
@@ -163,11 +155,30 @@ The `url` that we've included is the api url from OMDB, with the added keyword t
 
 ### Promises
 
-Following `datatype`, there are three methods that we call promises.  In short, these tell the `$.ajax` request what to do if the request is successful, fails, or both.
+But, that is not all we need to complete the request. The AJAX method also returns what we call promises. In short, these tell the `$.ajax` request what to do if the request is successful, fails, or both. In this case, we are going to add 3:
 
-* `.done` requires a callback that determines what we do after a successful AJAX call
-* `.fail` requires a callback that determines what we do after an unsuccessful AJAX call
-* `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call
+```js
+.done ( function(response){
+  console.log(response);
+  // call movie function below to append movie titles
+  movie(response);
+})
+```
+* `.done` requires a callback that determines what we do after a successful AJAX call.
+
+```js
+.fail ( function (){
+  console.log("fail");
+})
+```
+* `.fail` requires a callback that determines what we do after an unsuccessful AJAX call.
+
+```js
+.always( function(){
+  console.log("Something happens");
+})
+```
+* `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call. While technically not necessary, it certainly doesn't hurt to include.
 
 ### You Do: GET from Tunr (20 mins)
 
@@ -220,18 +231,25 @@ $(document).ready(function(){
       type: 'GET',
       dataType: 'json',
       url: "http://localhost:3000/artists"
-    }).done(function(response) {
-      console.log(response);
-    }).fail(function(response){
-      console.log("Ajax get request failed.");
     })
   })
 })
 ```
 
-> If we access the response object, we can see all of the artists that were seeded in the database. Inside the done promise, we can interact with and display all the contents of the response.
+What's missing? we still need to add in our promises:
+
+```js
+.done(function(response) {
+  console.log(response);
+}).fail(function(response){
+  console.log("Ajax get request failed.");
+}).always(function(response){
+  console.log("Always!");
+})
+```
 
 **Bonus**: Render the data on the browser!
+> If we access the response object, we can see all of the artists that were seeded in the database. Inside the done promise, we can interact with and display all the contents of the response.
 
 *Hint*: similar to the movie app, check the response
 
