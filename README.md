@@ -121,7 +121,7 @@ How can we use an API to dynamically manipulate the DOM with the given data? In 
 How do we do this?
 *AJAX* (Asynchronous Javascript and XML) is the method through which we are able to make the usual HTTP requests: 'GET' 'POST' 'PUT' 'PATCH' 'DELETE' (depending on the access we have) to a given API.
 
-## Break (10 mins)
+## Break (10 mins/45)
 
 ## GET data from an external API using AJAX
 
@@ -334,7 +334,7 @@ $(".test_ajax_post").on("click", function(){
   })
 ```
 
-## Break (10 mins)
+## Break (10 mins/115)
 
 ### You Do: Finish Tunr Artist CRUD (30 mins)
 > answers at the end of lesson plan
