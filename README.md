@@ -54,6 +54,7 @@ Sometimes thats's all we need. All this information, from all these browsers and
 
 ### What is serialized data? (10 mins)
 
+#### JSON
 All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is *structured data*, as in: native arrays and hashes. Thus, native data structures can be *serialized* into a string representation of the data. This string can be transmitted, and then parsed back into data by another web agent.  
 
 There are **two** major serialized data formats:  
@@ -74,7 +75,9 @@ There are **two** major serialized data formats:
 
 Use your markers to write out a JSON representation of a blog post (title, author, published_on date) which has many comments (each with author, and body).
 
-* **XML** stands for "eXtensible Markup Language", and is the granddaddy of serialized data formats (itself based on HTML). XML is fat, ugly, and cumbersome to parse. However, it remains a major format due to its legacy usage across the web. You'll probably always favor using a JSON API, if available.
+#### XML
+
+**XML** stands for "eXtensible Markup Language", and is the granddaddy of serialized data formats (itself based on HTML). XML is fat, ugly, and cumbersome to parse. However, it remains a major format due to its legacy usage across the web. You'll probably always favor using a JSON API, if available.
 
 ```
 <users>
