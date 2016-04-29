@@ -135,7 +135,7 @@ How do we do this?
 ### I Do: GET example (10 mins)
 
 Let's build a very simple app that posts a movie title and poster after searching for it!
-[OMDB movie search](https://github.com/joe-gz/omdb-api)
+[OMDB movie search](https://github.com/ga-wdi-exercises/omdb-api)
 
 The starter code is linked above. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
 
