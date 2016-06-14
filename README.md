@@ -363,7 +363,7 @@ $("#post").on("click", function(){
       url: "http://localhost:3000/artists"
     }).done(function(response) {
       console.log(response)
-      $("ul.articles").append("<li><a href='/artists/" + response.id + "'>" + response.name + "</a></li>")
+      $("ul").append("<li><a href='/artists/" + response.id + "'>" + response.name + "</a></li>")
     }).fail(function(response){
       console.log("ajax post request failed")
     });
