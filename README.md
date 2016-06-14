@@ -155,7 +155,7 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 ## Break (10 minutes / 0:45)
 
-## `GET` Data From an API using AJAX
+## GET Data From an API using AJAX
 
 ### I Do: GET From OMDB (15 minutes / 1:00)
 
@@ -337,7 +337,7 @@ $("#post").on("click", function(){
 As you can see, every time we click on this button another artist is generated. We can now `POST` things to our database on the client side. But there's a problem here: we've hardcoded the attributes.
 
 <details>
-  <summary>Q: How might we be able to dynamically acquire data on the client side instead of hardcoding values?</summary>
+  <summary><strong>Q: How might we be able to dynamically acquire data on the client side instead of hardcoding values?</strong></summary>
 
   > By using the values the user enters into the input fields.
 
