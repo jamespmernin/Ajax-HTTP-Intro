@@ -1,6 +1,3 @@
-<!-- Provide additional info on what exactly a promise is. -->
-<!-- Show them what exactly a promise looks like. -->
-
 # Intro to APIs & AJAX
 
 ## Learning Objectives
