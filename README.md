@@ -220,8 +220,6 @@ A promise method for when the AJAX call is successful...
 ```js
 .done(function(response){
   console.log(response);
-  // call movie function below to append movie titles
-  // appendMovie(response);
 });
 ```
 
