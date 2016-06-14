@@ -282,7 +282,7 @@ Instead of just logging the API response to the console, append it to the page!
 
 Now let's take a look at an API that resembles those that we'll be working with in class over the next few weeks: Tunr. It's a web app the instructors made that lists artists and their songs. It also has an API that we will not only be reading from today but writing to it as well.
 
-[Click here](https://tunr-api.herokuapp.com) and take a look. As you're exploring, try adding `.json` to the end of the different URLs you encounter. What do you see?
+**[Check it out.](https://tunr-api.herokuapp.com)**
 
 ### Set Up (5 minutes / 1:15)
 
