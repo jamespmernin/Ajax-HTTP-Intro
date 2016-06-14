@@ -278,81 +278,34 @@ You'll notice we're only receiving one movie in the API response. Use the OMDB D
 
 Instead of just logging the API response to the console, append it to the page!
 
-### You Do: GET From Tunr (20 mins)
+## Another API: Tunr
 
-Fork and clone another [Tunr](https://github.com/ga-wdi-exercises/tunr_rails_ajax) repo!
-Once you've cloned the repo, `cd` into it and run the usual commands...
+Now let's take a look at an API that resembles those that we'll be working with in class over the next few weeks: Tunr. It's a web app the instructors made that lists artists and their songs. It also has an API that we will not only be reading from today but writing to it as well.
 
-```bash
-$ bundle install
-$ rake db:drop
-$ rake db:create db:migrate db:seed
-```
+[Click here](https://tunr-api.herokuapp.com) and take a look. As you're exploring, try adding `.json` to the end of the different URLs you encounter. What do you see?
 
-We can now use `$.ajax()` to make asynchronous HTTP requests to our Tunr app! Let's go ahead and create a new Artists controller action and corresponding view: `test_ajax`
+### Set Up (5 minutes / 1:15)
 
-#### Setting up a view to test AJAX with
+We will create a small app that will allow us to interact with the Tunr API. Start out by cloning down the starter code...
 
-Let's update our routes in `config/routes.rb` for a new route to test all of our AJAX calls in:
+`$ git clone git@github.com:ga-wdi-exercises/tunr-ajax.git`
 
-```ruby
-get '/test_ajax', to: 'artists#test_ajax'
-```
+Change into that directory and open its files in Atom. We will only be adding code to `script.js`. Also take a look at the interface we'll be using by opening `index.html` in Chrome.
 
-in `app/controllers/artists_controller.rb`:
+### You Do: GET (10 minutes / 1:25)
 
-```ruby
-# We're just creating this so we can test AJAX on a separate view, test_ajax.html.erb.
-def test_ajax
-end
-```
+> 5 minutes exercise. 5 minutes review.
 
-Create `app/views/artists/test_ajax.html.erb` and place the following content:
+Start by creating an AJAX `GET` request to Tunr.
+* It should be triggered when the user clicks on the big "GET" button.
+* If the AJAX call is successful, it should print the response to the console.
+* If the AJAX call is failure, it should print the word "FAIL" as well as the response to the console.
 
-```html
-<div class="test_ajax_get">AJAX GET!</div>
-<div class="test_ajax_post">AJAX POST!</div>
-<div class="test_ajax_put">AJAX PUT!</div>
-<div class="test_ajax_delete">AJAX DELETE!</div>
+#### Bonus
 
-<ul class = "artists">
+Render the response on the page. You may add to `index.html` to do this.
 
-</ul>
-```
-
-#### AJAX GET
-Great, everything's working. Let's try doing a `GET` request to our API. In `app/assets/javascripts/application.js`:
-
-```js
-$(document).ready(function(){
-  $(".test_ajax_get").on("click", function(){
-    $.ajax({
-      type: 'GET',
-      dataType: 'json',
-      url: "http://localhost:3000/artists"
-    })
-  })
-})
-```
-
-What's missing? we still need to add in our promises:
-
-```js
-.done(function(response) {
-  console.log(response);
-}).fail(function(response){
-  console.log("Ajax get request failed.");
-}).always(function(response){
-  console.log("Always!");
-})
-```
-
-**Bonus**: Render the data on the browser!
 > If we access the response object, we can see all of the artists that were seeded in the database. Inside the done promise, we can interact with and display all the contents of the response.
-
-*Hint*: similar to the movie app, check the response
-
-### Review (5 mins)
 
 ## AJAX and the rest of CRUD
 
