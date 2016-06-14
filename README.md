@@ -1,10 +1,5 @@
-<!-- TO DO -->
-<!-- Examples of APIs they've used so far? -->
-<!-- Are there popular XML-only APIs? -->
 <!-- Provide additional info on what exactly a promise is. -->
 <!-- Show them what exactly a promise looks like. -->
-<!-- Give a beginner's definition of HTTP methods and CRUD -->
-<!-- When posting, will need to wrap `data` in `artist: { ... }` -->
 
 # Intro to APIs & AJAX
 
@@ -25,7 +20,7 @@
 
 > Basically, an API is a service that provides raw data for public use.
 
-API stands for "Application Program Interface" and technically applies to all of software design. Since the explosion of information technology, however, the term now commonly refers to web URLs that can be accessed for raw data.
+API stands for "Application Program Interface" and technically applies to all of software design. The DOM and jQuery are actually examples of APIs! Since the explosion of information technology, however, the term now commonly refers to web URLs that can be accessed for raw data.
 
 APIs publish data for public use. As third-party software developers, we can access an organization's API and use their data within our own applications.
 
@@ -139,11 +134,14 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 | Type of Request | What's It Do? | An Example URL |
 |-----------------|---------------|----------------|
-| `GET`  | Read | http://www.yearbook.com/students |
-| `POST` | Create | http://www.yearbook.com/students |
-| `PUT` | Update | http://www.yearbook.com/students/4 |
-| `PATCH` | Update | http://www.yearbook.com/students/4 |
-| `DELETE` | Delete | http://www.yearbook.com/students/4 |
+| `GET`  | Read | [http://swapi.co/api/planets/](http://swapi.co/api/planets/) |
+| `POST` | Create | [http://swapi.co/api/planets/](http://swapi.co/api/planets/) |
+| `PUT` | Update | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/
+http://swapi.co/api/planets/) |
+| `PATCH` | Update | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/
+http://swapi.co/api/planets/) |
+| `DELETE` | Delete | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/
+http://swapi.co/api/planets/) |
 
 <details>
   <summary><strong>Q: Why do you think there is a "4" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</strong></summary>
@@ -325,7 +323,7 @@ $("#post").on("click", function(){
       }
     },
     dataType: 'json',
-    url: "http://localhost:3000/artists"
+    url: "https://tunr-api.herokuapp.com/artists"
   }).done(function(response) {
     console.log(response);
   }).fail(function(response){
@@ -411,6 +409,10 @@ Some additional notes...
 - What is an API?
 - Why are APIs useful/important?
 - What is AJAX?
+
+## Hungry For More?
+
+[Take a look at the prompts in this week's lab.](https://github.com/ga-wdi-exercises/fun_with_apis#need-an-app-idea)
 
 ## Resources
 
