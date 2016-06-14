@@ -303,59 +303,25 @@ Start by creating an AJAX `GET` request to Tunr.
 
 #### Bonus
 
-Render the response on the page. You may add to `index.html` to do this.
+Render the response on the page. You can modify `index.html` to do this.
 
 > If we access the response object, we can see all of the artists that were seeded in the database. Inside the done promise, we can interact with and display all the contents of the response.
 
-## AJAX and the rest of CRUD
+### I Do: POST (15 minutes / 1:40)
 
-### I Do: POST a new artist (15 mins)
+> **Do not follow along for this portion of the lesson.** You will have the opportunity to do it yourself afterwards.
 
-Let's go ahead and add the following to the ajax GET request in the `.done` promise:
+Let's try and create an artist using AJAX. In `script.js`...
 
 ```js
-console.log(response)
-for (var i = 0; i<response.length;i++){
-  $("ul.artists").append("<li><a href='/artists/" + response[i].id + "'>" + response[i].name + "</a></li>")
-}
-```
-* what is this doing?
-This allows us to add the artists to the browser when we click GET.
-
-Now let's update our view to include some input fields in `app/views/artists/test_ajax.html.erb`:
-
-```html
-<!-- div attached to event handler -->
-<div class="test_ajax_get">AJAX GET!</div>
-
-<!-- form for ajax post and put request -->
-<label>Name:</label>
-<input class="name" type="text">
-<label>Photo_url:</label>
-<input class="photo_url" type="text">
-<label>Nationality:</label>
-<input class="nationality" type="text">
-
-<!-- divs attached to event handlers -->
-<div class="test_ajax_post">AJAX POST!!</div>
-<div class="test_ajax_put">AJAX PUT!!</div>
-<div class="test_ajax_delete">AJAX DELETE!!</div>
-
-```
-
-#### AJAX Post (10 mins)
-
-Let's try and create an artist using AJAX. Let's update our `app/assets/javascripts/application.js`...
-
-```javascript
-$(".test_ajax_post").on("click", function(){
+$("#post").on("click", function(){
   $.ajax({
     type: 'POST',
     data: {
       artist: {
-        photo_url: "www.google.com",
-        name: "bob",
-        nationality: "bob"
+        name: "Limp Bizkit",
+        photo_url: "http://sessionsx-magazine.itibitiventuresi.netdna-cdn.com/wp-content/uploads/2016/01/Featured-What-Happened-To-Limp-Bizkit-.jpg",
+        nationality: "USA"
       }
     },
     dataType: 'json',
@@ -364,24 +330,35 @@ $(".test_ajax_post").on("click", function(){
     console.log(response);
   }).fail(function(response){
     console.log("Ajax get request failed");
-  })
-})
+  });
+});
 ```
 
-As you can see, every time we click on this button another artist is generated. This is awesome! We can now POST things to our database on the client side. But there's a problem here: we've hardcoded the attributes.
+As you can see, every time we click on this button another artist is generated. We can now `POST` things to our database on the client side. But there's a problem here: we've hardcoded the attributes.
 
-**Question for you:** how might we be able to dynamically acquire data on the client side instead of hardcoding values?
+<details>
+  <summary>Q: How might we be able to dynamically acquire data on the client side instead of hardcoding values?</summary>
 
-**Answer for you**
+  > By using the values the user enters into the input fields.
+
+</details>
+
+Let's try that out...
 
 ```js
-$(".test_ajax_post").on("click", function(){
-    var name = $(".name").val()
-    var photoUrl = $(".photo_url").val()
-    var nationality = $(".nationality").val()
+$("#post").on("click", function(){
+    var name = $("#artist-name").val();
+    var photoUrl = $("#artist-photo-url").val();
+    var nationality = $("#artist-nationality").val();
     $.ajax({
       type: 'POST',
-      data: {artist: {photo_url: photoUrl, name: name, nationality: nationality}},
+      data: {
+        artist: {
+          photo_url: photoUrl,
+          name: name,
+          nationality: nationality
+        }
+      },
       dataType: 'json',
       url: "http://localhost:3000/artists"
     }).done(function(response) {
@@ -389,29 +366,45 @@ $(".test_ajax_post").on("click", function(){
       $("ul.articles").append("<li><a href='/artists/" + response.id + "'>" + response.name + "</a></li>")
     }).fail(function(response){
       console.log("ajax post request failed")
-    })
-  })
+    });
+  });
+```
+### You Do: POST (10 minutes / 1:50)
+
+Now you try it. Again, feel free to reference the code above or give it a shot only using the pseudocode below.
+
+```
+When the user clicks the POST button.
+  Store the name, photo URL and nationality.
+  Make an AJAX call, indicating the proper URL, type and data type.
+    Indicate what should be done after a successful API call.
+    Indicate what should be done after a failed API call.
 ```
 
-## Break (10 mins/115)
+## Break (10 minutes / 2:05)
 
-### You Do: Finish Tunr Artist CRUD (30 mins)
-> answers at the end of lesson plan
+### You Do: PUT and DELETE (Rest of the Lesson)
 
-Make a PUT request that updates the artist with an ID of 3 with any information you add into the input fields.
+You now know enough to tackle sending `PUT` (updating an artist) and `DELETE` (deleting an artist) AJAX requests on your own! One thing to keep in mind as you're working on these...
 
-Make a DELETE request that will delete the artist with an ID of 4
+<details>
 
-*Note*: If you finish early, there are bonuses galore
+  <summary><strong>Q: How can we identify which artist we want to update or delete in an AJAX call? (Hint: take a look at the HTTP request table earlier in this lesson)</strong></summary>
 
-### Bonus You Do: CRUD for Songs
+  > By adding an id (or unique numerical identifier) to the end of the URL.
 
-### Super Bonuses
+</details>
 
-* Create a button or link that, when clicked, creates inline editing for an artist.
-* Create a button that submits an AJAX `PUT` request to update that artist in the database. Change the view on the client side, if need be.
-* Create a button or link for each artist that submits an AJAX `DELETE` request to delete an artist in the database. Update the view in the client side accordingly.
-* Create an AJAX request in another app you've created (e.g., projects, Scribble). Be sure to make sure your controller actions respond to JSON.
+Since you will all be modifying the same API, **please only update or delete artists that you yourself have created!**
+
+Some additional notes...
+* You can hardcode an artist id into your AJAX request. Don't worry about taking that in as a user input.
+* You do not have to render the results of a `PUT` or `DELETE` request on the page. That's a bonus.
+
+#### Bonuses
+
+* If you haven't already, make it so that a successful `GET` request renders artist names in the browser.
+* After a successful `POST` `PUT` or `DELETE` request, update the list of artists in the browser to reflect the changes made to the API.
 
 ## Conclusion (5 mins)
 
@@ -419,65 +412,10 @@ Make a DELETE request that will delete the artist with an ID of 4
 - Why are APIs useful/important?
 - What is AJAX?
 
-## Hungry for More?
+## Resources
 
-### Postman: A Closer Look at an API Request
-
-Let's make a basic HTTP request to an API. While we can technically just do this in the browser, we're going to use Postman - a Chrome plug-in for making HTTP requests - so we can look at it in more detail.  
-Steps  
-  1. [Download Postman](https://www.getpostman.com/).  
-  2. Type in the "url" of an API call.  
-  3. Ensure the "method" is "GET".  
-  4. Press "Send".  
-
-Here's an example of a successful `200 OK` API call...
-
-![Postman screenshot success](http://i.imgur.com/2TADr4J.png)
-
-And here's an example of an unsuccessful `403 Forbidden` API call. Why did it fail?
-
-![Postman screenshot fail](http://i.imgur.com/r3nIhGH.png)
-
-## Resources:
 * [Andy's blog](http://andrewsunglaekim.github.io/Server-side-api-calls-wrapped-in-ruby-classes/)
 * [Postman](https://www.getpostman.com/)
 * [Intro to APIs](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
 * [Practice with APIs](https://github.com/ga-dc/weather_teller)
 * [Beautify your JSON in Chrome](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en)
-
-
-## Artist PUT/DELETE code
-
-```js
-// ajax put
-$(".test_ajax_put").on("click", function(){
-  var name = $(".name").val()
-  var photoUrl = $(".photo_url").val()
-  var nationality = $(".nationality").val()
-  $.ajax({
-    type: 'PUT',
-    data:{artist: {photo_url: photoUrl, name: name, nationality: nationality}},
-    dataType: 'json',
-    url: "http://localhost:3000/artists/6"
-  }).done(function(response){
-    console.log(response)
-  }).fail(function(){
-    console.log("failed to update")
-  })
-})
-
-// ajax delete
-$(".test_ajax_delete").on("click", function(){
-  $.ajax({
-    type: 'DELETE',
-    dataType: 'json',
-    url: "http://localhost:3000/artists/3"
-  }).done(function(response){
-    console.log("DELETED")
-    console.log(response)
-  }).fail(function(){
-    console.log("failed to delete")
-  })
-})
-})
-```
