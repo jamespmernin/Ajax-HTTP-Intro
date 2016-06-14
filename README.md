@@ -185,8 +185,6 @@ $.ajax({
   2. Type of HTTP request.
   3. Datatype. Usually JSON.
 
-In this example, we used the URL the [OMDB API documentation](http://www.omdbapi.com/) told us to use. The `type` is simply the verb we want performed, in this case `GET`. And the `datatype` will typically be `json`.
-
 <details>
 
   <summary><strong>Q: How did we know which URL to use?</strong></summary>
