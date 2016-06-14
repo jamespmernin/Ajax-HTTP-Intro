@@ -146,7 +146,7 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 | `DELETE` | Delete | http://www.yearbook.com/students/4 |
 
 <details>
-  <summary>Q: Why do you think there is a "4" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</summary>
+  <summary><strong>Q: Why do you think there is a "4" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</strong></summary>
 
   > You'll notice that the URLs for `PUT` `PATCH` and `DELETE` end with a number. That's because these actions are updating or deleting a *particular* student. That number is a unique identifier for a particular student defined on the back-end. More on this next week...
 
@@ -189,7 +189,7 @@ In this example, we used the URL the [OMDB API documentation](http://www.omdbapi
 
 <details>
 
-  <summary>Q: How did we know which URL to use?</summary>
+  <summary><strong>Q: How did we know which URL to use?</strong></summary>
 
   > The [OMDB API documentation](http://www.omdbapi.com/)
 
@@ -197,7 +197,7 @@ In this example, we used the URL the [OMDB API documentation](http://www.omdbapi
 
 <details>
 
-  <summary>Q: What does it mean to set `type` to `GET`?</summary>
+  <summary><strong>Q: What does it mean to set `type` to `GET`?</strong></summary>
 
   > We are **reading** the response sent back to us. To `GET` means to "read."
 
@@ -205,7 +205,7 @@ In this example, we used the URL the [OMDB API documentation](http://www.omdbapi
 
 <details>
 
-  <summary>Q: So our application can make an AJAX call. Why aren't we seeing anything after clicking "Search"?</summary>
+  <summary><strong>Q: So our application can make an AJAX call. Why aren't we seeing anything after clicking "Search"?</strong></summary>
 
   > We haven't told our application what to do once it receives a response.
 
@@ -228,7 +228,7 @@ A promise method for when the AJAX call is successful...
 ```
 
 <details>
-  <summary>Q: What are we passing into the `.done` promise? Does this remind you of anything we've done previously in class?</summary>
+  <summary><strong>Q: What are we passing into the `.done` promise? Does this remind you of anything we've done previously in class?</strong></summary>
 
   > `.done` requires a callback that determines what we do after a successful AJAX call.
 
@@ -274,7 +274,11 @@ When the user clicks the search button.
     Indicate what should be done after a failed API call.
 ```
 
-#### Bonus
+#### Bonus I
+
+You'll notice we're only receiving one movie in the API response. Use the OMDB Documentation to figure out how to return **multiple** movies.
+
+#### Bonus II
 
 Instead of just logging the API response to the console, append it to the page!
 
@@ -460,18 +464,11 @@ Make a DELETE request that will delete the artist with an ID of 4
 * Create a button or link for each artist that submits an AJAX `DELETE` request to delete an artist in the database. Update the view in the client side accordingly.
 * Create an AJAX request in another app you've created (e.g., projects, Scribble). Be sure to make sure your controller actions respond to JSON.
 
-### More Bonus: Movie Search
-
-Go through the process of creating the movie search app from the first example.
-
-You'll notice that if you simply search for "Star Wars", it doesn't really work! why is that? Is there another url you can use from OMDB API that would return all Star Wars movies?
-
 ## Conclusion (5 mins)
 
 - What is an API?
 - Why are APIs useful/important?
 - What is AJAX?
-
 
 ## Hungry for More?
 
