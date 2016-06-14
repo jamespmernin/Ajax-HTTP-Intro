@@ -1,32 +1,41 @@
-# api-intro-with-ajax
+<!-- TO DO -->
+<!-- Examples of APIs they've used so far? -->
+<!-- Are there popular XML-only APIs? -->
+<!-- Provide additional info on what exactly a promise is. -->
+<!-- Show them what exactly a promise looks like. -->
+<!-- Give a beginner's definition of HTTP methods and CRUD -->
+<!-- When posting, will need to wrap `data` in `artist: { ... }` -->
+
+# Intro to APIs & AJAX
 
 ## Learning Objectives
 
-- Describe what an API is, and why we might use one.
-- Understand the format of API data
+- Describe what an API is and why we might use one.
+- Understand the format of API data.
 - Explain the common role of JSON on the web.
-- Use jQuery $.ajax() method to make GET requests for data.
-- Use jQuery's 'promise-like' methods to handle AJAX responses.
-- Render new HTML content using data loaded from an Ajax request.
-- Perform POST, PUT, and DELETE requests to an API to modify data.
+- Use jQuery's `$.ajax()` method to make GET requests for data.
+- Use jQuery's "promise-like" methods to handle AJAX responses.
+- Render new HTML content using data loaded from an AJAX request.
+- Perform POST, PUT and DELETE requests to an API to modify data.
 
 
-## Framing (5 mins)
+## Framing (5 minutes / 0:05)
 
 **What is an API?**
->Basically, an API is a service that provides raw data for public use.
 
-API stands for "Application Program Interface", and technically applies to all of software design. However, since the explosion of information technology, the term now commonly refers to web URLs that can be accessed for raw data.
+> Basically, an API is a service that provides raw data for public use.
+
+API stands for "Application Program Interface" and technically applies to all of software design. Since the explosion of information technology, however, the term now commonly refers to web URLs that can be accessed for raw data.
 
 APIs publish data for public use. As third-party software developers, we can access an organization's API and use their data within our own applications.
 
 **Why do we care?**
 
-Because why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere..
+Why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.
 
 **Why now?**
 
-As we move into building single page applications, now is the perfect time to start understanding how to obtain data on the client side, and then render it on the browser.
+As we move into building single page applications, now is the perfect time to start understanding how to obtain data on the client side and then render it on the browser.
 
 ## API Exploration
 
@@ -35,7 +44,7 @@ As we move into building single page applications, now is the perfect time to st
 * [http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL)
 * [http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL](http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL)
 
-### Think, Pair, Share (5 mins)
+### Think, Pair, Share (5 minutes / 0:10)
 
 Form pairs and explore the API links in the below table. Record any observations that come to mind. In particular, think about what you see in the URL and the API response itself.
 
@@ -52,14 +61,15 @@ Form pairs and explore the API links in the below table. Record any observations
 
 Sometimes thats's all we need. All this information, from all these browsers and all these servers, has to travel through the network. That's almost certainly the slowest part of the request cycle. We want to minimize the bits. There are times when we just need the data. For those times, we want a concise format.   
 
-### What is serialized data? (10 mins)
+### What is Serialized Data? (10 minutes / 0:20)
+
+All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is **structured data** (i.e., arrays and hashes). Thus, native data structures can be **serialized** into a string representation of the data. This string can be transmitted and then parsed back into data by another web agent.  
+
+There are **two** major serialized data formats...  
 
 #### JSON
-All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is *structured data*, as in: native arrays and hashes. Thus, native data structures can be *serialized* into a string representation of the data. This string can be transmitted, and then parsed back into data by another web agent.  
 
-There are **two** major serialized data formats:  
-
-* **JSON** stands for "JavaScript Object Notation", and has become a universal standard for serializing native data structures for transmission. It is light-weight, easy to read, and quick to parse.
+**JSON** stands for "JavaScript Object Notation" and has become a universal standard for serializing native data structures for transmission. It is light-weight, easy to read and quick to parse.
 
 ```json
 {
@@ -71,13 +81,15 @@ There are **two** major serialized data formats:
 ```
 > Remember, JSON is a serialized format. While it may look like an object, it needs to be parsed so we can interact with it as a true Javascript object.
 
-#### Exercise: White Table a Blog Post in JSON
+#### Exercise: White Table a Blog Post in JSON (3 minutes)
 
-Use your markers to write out a JSON representation of a blog post (title, author, published_on date) which has many comments (each with author, and body).
+Spend 3 minutes using your markers to write out a JSON representation of a blog post (`title`, `author`, `published_on` date) which has many comments, each with an author and body.
+
+> When we say "has many," this means that something *can* have arguments. It doesn't have to though. For this exercise, just give your blog post at least two comments.
 
 #### XML
 
-**XML** stands for "eXtensible Markup Language", and is the granddaddy of serialized data formats (itself based on HTML). XML is fat, ugly, and cumbersome to parse. However, it remains a major format due to its legacy usage across the web. You'll probably always favor using a JSON API, if available.
+**XML** stands for "eXtensible Markup Language" and is the granddaddy of serialized data formats (itself based on HTML). XML is fat, ugly and cumbersome to parse. It remains a major format, however, due to its legacy usage across the web. You'll probably always favor using a JSON API, if available.
 
 ```
 <users>
@@ -97,16 +109,13 @@ Use your markers to write out a JSON representation of a blog post (title, autho
 
 ## Where Do We Find APIs? (5 mins)
 
-APIs are published everywhere. Chances are good that most major content sources you follow online publish their data in some type of serialized format. Heck, [even Marvel publishes an API](http://developer.marvel.com/documentation/getting_started). Look around for a "Developers" section on major websites, or ask the Google Answer-Bot.
-
-> Except for ESPN and most major sports entities :(
-  - [ESPN Dev](http://espn.go.com/apis/devcenter/)
+APIs are published everywhere. Chances are good that most major content sources you follow online publish their data in some type of serialized format. Heck, [even Marvel publishes an API](http://developer.marvel.com/documentation/getting_started). Look around for a "Developers" section on major websites.
 
 **That sounds hard. Can't you just give me a freebie?**
 
-Okay... try the [Programmable Web API Directory](http://www.programmableweb.com/apis/directory) or the [Public APIs Directory](http://www.publicapis.com/).
+Try the [Programmable Web API Directory](http://www.programmableweb.com/apis/directory) or the [Public APIs Directory](http://www.publicapis.com/).
 
-## What Is An API Key? (5 mins)
+## What Is An API Key? (5 minutes / 0:25)
 
 While the majority of APIs are free to use, many of them require an API "key" that identifies the developer requesting data access. This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.
 
@@ -117,32 +126,45 @@ While the majority of APIs are free to use, many of them require an API "key" th
 * With key: [http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC](http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC)
 
 **It is very important that you not push your API keys to a public Github repo.**
-> Check out [Figaro](https://github.com/laserlemon/figaro) or research some additional ways to hide your keys
 
-## AJAX (5 mins)
+> This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
 
-**So we know what an API is, now what?**
+## AJAX (5 minutes / 0:30)
 
-How can we use an API to dynamically manipulate the DOM with the given data? In Rails, we would have to make a request through the server, and refresh the page with returned data.  Now we can do this on the client side! As you'll come to learn, this allows us to build single page applications that do not require refreshes.
+**So we know what an API is. Now what?**
 
-How do we do this?
-*AJAX* (Asynchronous Javascript and XML) is the method through which we are able to make the usual HTTP requests: 'GET' 'POST' 'PUT' 'PATCH' 'DELETE' (depending on the access we have) to a given API.
+How can we use an API to dynamically manipulate the DOM with the given data? **AJAX**. As you'll come to learn, this allows us to build single page applications that do not require refreshes.
 
-## Break (10 mins/45)
+**AJAX**, which stands for "Asynchronous Javascript and XML," is the method through which we are able to make HTTP requests. The standard requests we will be making are `GET` `POST` `PUT` `PATCH` and `DELETE`.
 
-## GET data from an external API using AJAX
+| Type of Request | What's It Do? | An Example URL |
+|-----------------|---------------|----------------|
+| `GET`  | Read | http://www.yearbook.com/students |
+| `POST` | Create | http://www.yearbook.com/students |
+| `PUT` | Update | http://www.yearbook.com/students/3 |
+| `PATCH` | Update | http://www.yearbook.com/students/3 |
+| `DELETE` | Delete | http://www.yearbook.com/students/3 |
 
-### I Do: GET example (10 mins)
+> You'll notice that the URLs for `PUT` `PATCH` and `DELETE` end with a number. That's because these actions are updating or deleting a *particular* student. That number is a unique identifier for a particular student defined on the back-end. More on this next week...
 
-Let's build a very simple app that posts a movie title and poster after searching for it!
-[OMDB movie search](https://github.com/ga-wdi-exercises/omdb-api)
+## Break (10 minutes / 0:45)
+
+## `GET` Data From an API using AJAX
+
+### I Do: GET From OMDB (15 minutes / 1:00)
+
+> **Do not follow along for this portion of the lesson.** You will have the opportunity to do it yourself afterwards.
+
+Let's build a very simple app that posts a movie title and poster after searching for it. We'll do this using the [OMDB API](http://www.omdbapi.com/).
+
+**[OMDB movie search](https://github.com/ga-wdi-exercises/omdb-api)**
 
 The starter code is linked above. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
 
-Let's go ahead and add in the AJAX request:
+Let's go ahead and add in the AJAX request...
 
 ```js
-// get value from search input field
+// Get value from search input field.
 var keyword = $("input[name='keyword']").val();
 var url = "https://www.omdbapi.com/?t="+keyword
 $.ajax({
@@ -152,43 +174,105 @@ $.ajax({
 })
 ```
 
-**What does all of this mean?**
+`$.ajax` takes an object as an argument with at least three key-value pairs...
+  1. The URL endpoint for the JSON object.
+  2. Type of HTTP request.
+  3. Datatype. Usually JSON.
 
-$.ajax takes an object as an argument with at least three key-value pairs...
-(1) The URL endpoint for the JSON object.
-(2) Type of HTTP request.
-(3) Datatype. Usually JSON.
+In this example, we used the URL the [OMDB API documentation](http://www.omdbapi.com/) told us to use. The `type` is simply the verb we want performed, in this case `GET`. And the `datatype` will typically be `json`.
 
-The `url` that we've included is the api url from OMDB, with the added keyword that we are searching for. The `type` is simply the verb we want performed; in this case GET. And, the `datatype` will typically be `json`.
+<details>
+
+  <summary>Q: How did we know which URL to use?</summary>
+
+  > The [OMDB API documentation](http://www.omdbapi.com/)
+
+</details>
+
+<details>
+
+  <summary>Q: What does it mean to set `type` to `GET`?</summary>
+
+  > We are **reading** the response sent back to us. To `GET` means to "read."
+
+</details>
+
+<details>
+
+  <summary>Q: So our application can make an AJAX call. Why aren't we seeing anything after clicking "Search"?</summary>
+
+  > We haven't told our application what to do once it receives a response.
+
+</details>
 
 ### Promises
 
-But, that is not all we need to complete the request. The AJAX method also returns what we call promises. In short, these tell the `$.ajax` request what to do if the request is successful, fails, or both. In this case, we are going to add 3:
+Now we need to tell our AJAX method what to do next. We can do this by doing something with the its return value, which comes in the form of a **promise**. We can use **promise methods** to tell the `$.ajax` request what to do if the request is successful or not. In this case, we are going to add three...
+
+#### `.done`
+
+A promise method for when the AJAX call is successful...
 
 ```js
-.done ( function(response){
+.done(function(response){
   console.log(response);
   // call movie function below to append movie titles
   // appendMovie(response);
-})
+});
 ```
-* `.done` requires a callback that determines what we do after a successful AJAX call.
+
+<details>
+  <summary>Q: What are we passing into the `.done` promise? Does this remind you of anything we've done previously in class?</summary>
+
+  > `.done` requires a callback that determines what we do after a successful AJAX call.
+
+</details>
+
+#### `.fail`
+
+A promise method for when the AJAX call fails...
 
 ```js
-.fail ( function (){
+.fail(function (){
   console.log("fail");
-})
+});
 ```
-* `.fail` requires a callback that determines what we do after an unsuccessful AJAX call.
+
+> `.fail` requires a callback that determines what we do after an unsuccessful AJAX call.
+
+#### `.always`
+
+A promise method that is executed regardless of whether the AJAX call succeeds or fails...
 
 ```js
-.always( function(){
+.always(function(){
   console.log("Something happens");
-})
+});
 ```
-* `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call. While technically not necessary, it certainly doesn't hurt to include.
+> `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call. While technically not necessary, it certainly doesn't hurt to include.
 
-### You Do: GET from Tunr (20 mins)
+### You Do: GET From OMDB (10 minutes / 1:10)
+
+Now it's your turn to do the same. Start by cloning down the starter code...
+
+`$ git clone git@github.com:ga-wdi-exercises/omdb-api.git`
+
+Then you may either walk through the specific steps outlined in the previous section or try to do it yourself using this pseudocode...
+
+```
+When the user clicks the search button.
+  Store the search term.
+  Create and store the URL.
+  Make an AJAX call, indicating the proper URL, type and data type.
+    Indicate what should be done after a successful API call.
+    Indicate what should be done after a failed API call.
+```
+
+#### Bonus
+
+Instead of just logging the API response to the console, append it to the page!
+
+### You Do: GET From Tunr (20 mins)
 
 Fork and clone another [Tunr](https://github.com/ga-wdi-exercises/tunr_rails_ajax) repo!
 Once you've cloned the repo, `cd` into it and run the usual commands...
@@ -202,6 +286,7 @@ $ rake db:create db:migrate db:seed
 We can now use `$.ajax()` to make asynchronous HTTP requests to our Tunr app! Let's go ahead and create a new Artists controller action and corresponding view: `test_ajax`
 
 #### Setting up a view to test AJAX with
+
 Let's update our routes in `config/routes.rb` for a new route to test all of our AJAX calls in:
 
 ```ruby
@@ -268,6 +353,7 @@ What's missing? we still need to add in our promises:
 ### I Do: POST a new artist (15 mins)
 
 Let's go ahead and add the following to the ajax GET request in the `.done` promise:
+
 ```js
 console.log(response)
 for (var i = 0; i<response.length;i++){
@@ -299,13 +385,20 @@ Now let's update our view to include some input fields in `app/views/artists/tes
 ```
 
 #### AJAX Post (10 mins)
+
 Let's try and create an artist using AJAX. Let's update our `app/assets/javascripts/application.js`...
 
 ```javascript
 $(".test_ajax_post").on("click", function(){
   $.ajax({
     type: 'POST',
-    data: {artist: {photo_url: "www.google.com", name: "bob", nationality: "bob"}},
+    data: {
+      artist: {
+        photo_url: "www.google.com",
+        name: "bob",
+        nationality: "bob"
+      }
+    },
     dataType: 'json',
     url: "http://localhost:3000/artists"
   }).done(function(response) {
