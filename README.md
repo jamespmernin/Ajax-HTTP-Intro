@@ -141,11 +141,17 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 |-----------------|---------------|----------------|
 | `GET`  | Read | http://www.yearbook.com/students |
 | `POST` | Create | http://www.yearbook.com/students |
-| `PUT` | Update | http://www.yearbook.com/students/3 |
-| `PATCH` | Update | http://www.yearbook.com/students/3 |
-| `DELETE` | Delete | http://www.yearbook.com/students/3 |
+| `PUT` | Update | http://www.yearbook.com/students/4 |
+| `PATCH` | Update | http://www.yearbook.com/students/4 |
+| `DELETE` | Delete | http://www.yearbook.com/students/4 |
 
-> You'll notice that the URLs for `PUT` `PATCH` and `DELETE` end with a number. That's because these actions are updating or deleting a *particular* student. That number is a unique identifier for a particular student defined on the back-end. More on this next week...
+<details>
+  <summary>Q: Why do you think there is a "4" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</summary>
+
+  > You'll notice that the URLs for `PUT` `PATCH` and `DELETE` end with a number. That's because these actions are updating or deleting a *particular* student. That number is a unique identifier for a particular student defined on the back-end. More on this next week...
+
+</details>
+
 
 ## Break (10 minutes / 0:45)
 
