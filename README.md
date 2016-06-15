@@ -285,10 +285,12 @@ Change into that directory and open its files in Atom. We will only be adding co
 
 ### You Do: GET (10 minutes / 1:25)
 
-Start by creating an AJAX `GET` request to Tunr.
+Start by creating an AJAX `GET` request to Tunr that returns **all artists**.
 * It should be triggered when the user clicks on the big "GET" button.
 * If the AJAX call is successful, it should print the response to the console.
 * If the AJAX call is failure, it should print the word "FAIL" as well as the response to the console.
+
+> Think about what we need to make this `GET` request. What might we not need that we did making an AJAX call to OMDB (or vice versa)?
 
 #### Bonus
 
