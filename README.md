@@ -402,6 +402,8 @@ Some additional notes...
 - What is an API?
 - Why are APIs useful/important?
 - What is AJAX?
+- What information might we need to pass into an AJAX call?
+- How do we go about interacting with the response of an AJAX call?
 
 ## Hungry For More?
 
