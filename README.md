@@ -351,7 +351,7 @@ $("#post").on("click", function(){
         }
       },
       dataType: 'json',
-      url: "http://localhost:3000/artists"
+      url: "https://tunr-api.herokuapp.com/artists"
     }).done(function(response) {
       console.log(response)
       $("ul").append("<li><a href='/artists/" + response.id + "'>" + response.name + "</a></li>")
