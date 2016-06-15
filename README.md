@@ -28,7 +28,7 @@ APIs publish data for public use. As third-party software developers, we can acc
 
   > APIs can provide us with data that would we would otherwise not be able to create ourselves.
 
-<details>
+</details>
 
 As we move into building single page applications, now is the perfect time to start understanding how to obtain data on the client side and then render it on the browser.
 
