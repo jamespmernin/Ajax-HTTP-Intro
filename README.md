@@ -76,12 +76,6 @@ There are **two** major serialized data formats...
 ```
 > Remember, JSON is a serialized format. While it may look like an object, it needs to be parsed so we can interact with it as a true Javascript object.
 
-#### Exercise: White Table a Blog Post in JSON (3 minutes)
-
-Spend 3 minutes using your markers to write out a JSON representation of a blog post (`title`, `author`, `published_on` date) which has many comments, each with an author and body.
-
-> When we say "has many," this means that something *can* have arguments. It doesn't have to though. For this exercise, just give your blog post at least two comments.
-
 #### XML
 
 **XML** stands for "eXtensible Markup Language" and is the granddaddy of serialized data formats (itself based on HTML). XML is fat, ugly and cumbersome to parse. It remains a major format, however, due to its legacy usage across the web. You'll probably always favor using a JSON API, if available.
@@ -219,7 +213,7 @@ A promise method for when the AJAX call is successful...
 ```
 
 <details>
-  <summary><strong>Q: What are we passing into the `.done` promise? Does this remind you of anything we've done previously in class?</strong></summary>
+  <summary><strong>Q: What are we passing into the `.done` promise method? Does this remind you of anything we've done previously in class?</strong></summary>
 
   > `.done` requires a callback that determines what we do after a successful AJAX call.
 
