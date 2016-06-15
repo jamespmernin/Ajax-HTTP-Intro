@@ -285,8 +285,6 @@ Change into that directory and open its files in Atom. We will only be adding co
 
 ### You Do: GET (10 minutes / 1:25)
 
-> 5 minutes exercise. 5 minutes review.
-
 Start by creating an AJAX `GET` request to Tunr.
 * It should be triggered when the user clicks on the big "GET" button.
 * If the AJAX call is successful, it should print the response to the console.
