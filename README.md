@@ -397,6 +397,12 @@ Some additional notes...
 * If you haven't already, make it so that a successful `GET` request renders artist names in the browser.
 * After a successful `POST` `PUT` or `DELETE` request, update the list of artists in the browser to reflect the changes made to the API.
 
+#### Solutions
+
+For reference in case you feel stuck. Don't copy and paste! Take a look and then try to implement yourself from memory.
+* [`PUT`](https://github.com/ga-wdi-exercises/tunr-ajax/commit/8cf4b74603c065e5d6a417315ebeba82bcdaa900)
+* [`DELETE`](https://github.com/ga-wdi-exercises/tunr-ajax/commit/6706d2bed4aaca253f9a58c55e4b136e232537cf)
+
 ## Conclusion (5 mins)
 
 - What is an API?
