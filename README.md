@@ -22,7 +22,7 @@ API stands for "Application Program Interface" and technically applies to all of
 APIs publish data for public use. As third-party software developers, we can access an organization's API and use their data within our own applications.
 
 <details>
-  <summary><strong>Why do we care?</strong></summary>
+  <summary><strong>Q: Why do we care?</strong></summary>
 
   > Why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.
 
@@ -136,12 +136,9 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 |-----------------|---------------|----------------|
 | `GET`  | Read | [http://swapi.co/api/planets/](http://swapi.co/api/planets/) |
 | `POST` | Create | [http://swapi.co/api/planets/](http://swapi.co/api/planets/) |
-| `PUT` | Update | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/
-http://swapi.co/api/planets/) |
-| `PATCH` | Update | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/
-http://swapi.co/api/planets/) |
-| `DELETE` | Delete | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/
-http://swapi.co/api/planets/) |
+| `PUT` | Update | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
+| `PATCH` | Update | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
+| `DELETE` | Delete | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
 
 <details>
   <summary><strong>Q: Why do you think there is a "4" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</strong></summary>
@@ -153,7 +150,7 @@ http://swapi.co/api/planets/) |
 
 ## Break (10 minutes / 0:45)
 
-## GET Data From an API using AJAX
+## GET Data From an API Using AJAX
 
 ### I Do: GET From OMDB (15 minutes / 1:00)
 
