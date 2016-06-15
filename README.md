@@ -21,11 +21,14 @@ API stands for "Application Program Interface" and technically applies to all of
 
 APIs publish data for public use. As third-party software developers, we can access an organization's API and use their data within our own applications.
 
-**Why do we care?**
+<details>
+  <summary><strong>Why do we care?</strong></summary>
 
-Why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.
+  > Why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.
 
-**Why now?**
+  > APIs can provide us with data that would we would otherwise not be able to create ourselves.
+
+<details>
 
 As we move into building single page applications, now is the perfect time to start understanding how to obtain data on the client side and then render it on the browser.
 
