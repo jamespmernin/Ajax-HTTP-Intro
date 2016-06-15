@@ -141,7 +141,7 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 | `DELETE` | Delete | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
 
 <details>
-  <summary><strong>Q: Why do you think there is a "4" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</strong></summary>
+  <summary><strong>Q: Why do you think there is a "2" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</strong></summary>
 
   > You'll notice that the URLs for `PUT` `PATCH` and `DELETE` end with a number. That's because these actions are updating or deleting a *particular* student. That number is a unique identifier for a particular student defined on the back-end. More on this next week...
 
