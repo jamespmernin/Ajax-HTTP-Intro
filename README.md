@@ -11,7 +11,7 @@
 - Perform POST, PUT and DELETE requests to an API to modify data.
 
 
-## Framing (5 minutes / 0:05)
+## Intro To API's (5 minutes / 0:05)
 
 **What is an API?**
 
@@ -30,6 +30,7 @@ APIs publish data for public use. As third-party software developers, we can acc
 
 </details>
 
+
 As we move into building single page applications, now is the perfect time to start understanding how to obtain data on the client side and then render it on the browser.
 
 ## API Exploration
@@ -40,18 +41,38 @@ As we move into building single page applications, now is the perfect time to st
 * [http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL](http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL)
 
 > Does the JSON look unreadable in the browser? If you're using Chrome, install the [JSON View plugin](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en).
+> 
 
-### Think, Pair, Share (5 minutes / 0:10)
+## Where Do We Find APIs? (5 mins)
 
-Form pairs and explore the API links in the below table. Record any observations that come to mind. In particular, think about what you see in the URL and the API response itself.
+APIs are published everywhere. Chances are good that most major content sources you follow online publish their data in some type of serialized format. Heck, [even Marvel publishes an API](http://developer.marvel.com/documentation/getting_started). Look around for a "Developers" section on major websites.
+
+#### List Of Commonly Used API's
+
+Here is a short list of commonly used API's for testing purposes. 
 
 | API | Sample URL |
 |-----|------------|
 | **[This for That](http://itsthisforthat.com/)** | http://itsthisforthat.com/api.php?json |
 | **[Giphy](https://github.com/Giphy/GiphyAPI)** | http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC |
-| **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
-| **[StarWars](http://swapi.co/)** | http://swapi.co/api/people/3 |
 | **[Stocks](http://dev.markitondemand.com/MODApis/)** | http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL |
+| **[Swapi](https://swapi.co/api/people/1/)** | https://swapi.co/api/people/1/ |
+
+#### API's Are No Longer Supported
+
+Sometimes support for your favorite API ends.  This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project. 
+
+| API | Sample URL |
+|-----|------------|
+| **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
+
+
+### Think, Pair, Share (10 minutes / 0:10)
+
+**Activity:** Go around the room and capture the industries that students are most interested in and have them find at least 3 possible API's that fall within that scope. They should use the following sites to find the corresponding API's
+
+- [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
+-  [Public APIs Directory](http://www.publicapis.com/).
 
 
 ### Why Just Data?
@@ -98,13 +119,12 @@ There are **two** major serialized data formats...
 * [http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL)
 * [http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL)
 
-## Where Do We Find APIs? (5 mins)
+### Working Locally With JSON
 
-APIs are published everywhere. Chances are good that most major content sources you follow online publish their data in some type of serialized format. Heck, [even Marvel publishes an API](http://developer.marvel.com/documentation/getting_started). Look around for a "Developers" section on major websites.
+JSON is the standard format to orgranize data for servers to send and receive data.  It's so popular that JS has two methods to package it for sending and receiving:
 
-**That sounds hard. Can't you just give me a freebie?**
-
-Try the [Programmable Web API Directory](http://www.programmableweb.com/apis/directory) or the [Public APIs Directory](http://www.publicapis.com/).
+- JSON.stringify()
+- JSON.parse()
 
 ## What Is An API Key? (5 minutes / 0:25)
 
