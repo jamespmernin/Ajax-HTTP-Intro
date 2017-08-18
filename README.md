@@ -67,9 +67,9 @@ Sometimes support for your favorite API ends.  This is an important consideratio
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
 
 
-### Think, Pair, Share (10 minutes / 0:10)
+### ACTIVITY: Think, Pair, Research (10 minutes / 0:10)
 
-**Activity:** Go around the room and capture the industries that students are most interested in and have them find at least 3 possible API's that fall within that scope. They should use the following sites to find the corresponding API's
+Go around the room and capture the industries that students are most interested in and have them find at least 3 possible API's that fall within that scope. They should use the following sites to find the corresponding API's
 
 - [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
 -  [Public APIs Directory](http://www.publicapis.com/).
