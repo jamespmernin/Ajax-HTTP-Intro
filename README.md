@@ -11,7 +11,7 @@
 - Perform POST, PUT and DELETE requests to an API to modify data.
 
 
-## Intro To API's (5 minutes / 0:05)
+## Intro To API's 
 
 **What is an API?**
 
@@ -43,7 +43,7 @@ As we move into building single page applications, now is the perfect time to st
 > Does the JSON look unreadable in the browser? If you're using Chrome, install the [JSON View plugin](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en).
 > 
 
-## Where Do We Find APIs? (5 mins)
+## Where Do We Find APIs? 
 
 APIs are published everywhere. Chances are good that most major content sources you follow online publish their data in some type of serialized format. Heck, [even Marvel publishes an API](http://developer.marvel.com/documentation/getting_started). Look around for a "Developers" section on major websites.
 
@@ -67,19 +67,41 @@ Sometimes support for your favorite API ends.  This is an important consideratio
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
 
 
-### ACTIVITY: Think, Pair, Research (10 minutes / 0:10)
+### ACTIVITY: Think, Pair, Research - 15min
 
 Go around the room and capture the industries that students are most interested in and have them find at least 3 possible API's that fall within that scope. They should use the following sites to find the corresponding API's
 
 - [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
 -  [Public APIs Directory](http://www.publicapis.com/).
 
+## What Is An API Key? 
+
+While the majority of APIs are free to use, many of them require an API "key" that identifies the developer requesting data access. This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.
+
+**Try hitting the [Giphy](https://api.giphy.com/) API...**
+
+* No key: [http://api.giphy.com/v1/gifs/search?q=funny+cat](http://api.giphy.com/v1/gifs/search?q=funny+cat)
+
+* With key: [http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC](http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC)
+
+**It is very important that you not push your API keys to a public Github repo.**
+
+> This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
+> 
+
+#### EXERCISE: Your First API Key(s) - 10min
+
+As a developer you will need to figure out how to navigate a site and find what your looking for.  No go to the following web sites and sign up for API keys.  
+
+- [OpenWeatherMap.org](https://openweathermap.org/appid)
+- [Giphy.com](https://giphy.com/)
+
 
 ### Why Just Data?
 
 Sometimes thats's all we need. All this information, from all these browsers and all these servers, has to travel through the network. That's almost certainly the slowest part of the request cycle. We want to minimize the bits. There are times when we just need the data. For those times, we want a concise format.   
 
-### What is Serialized Data? (10 minutes / 0:20)
+### What is Serialized Data? 
 
 All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is **structured data** (i.e., arrays and hashes). Thus, native data structures can be **serialized** into a string representation of the data. This string can be transmitted and then parsed back into data by another web agent.  
 
@@ -119,6 +141,40 @@ There are **two** major serialized data formats...
 * [http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL)
 * [http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL)
 
+### Parsing JSON
+
+You've seen a few examples of JSON and how data can be organized.  Here is the stock quote for Apple that you saw earlier.  If this data was stored in an object how would you return the `Low` and `High` values?
+
+
+```
+{
+	"Data": {
+	"Status": "SUCCESS",
+	"Name": "Apple Inc",
+	"Symbol": "AAPL",
+	"LastPrice": 157.86,
+	"Change": -3.08999999999998,
+	"ChangePercent": -1.91985088536811,
+	"Timestamp": "Thu Aug 17 00:00:00 UTC-04:00 2017",
+	"MarketCap": 815382892080,
+	"Volume": 27940565,
+	"ChangeYTD": 115.82,
+	"ChangePercentYTD": 36.2977033327577,
+	"High": 160.71,
+	"Low": 157.84,
+	"Open": 160.52
+	}
+}
+```
+
+### EXERCISE: Parsing JSON - 15min
+
+Working in groups can you parse the following JSON's data and determine what data is needed to populate the articles on the [GAFeddr](http://gafeedr.surge.sh/) web site?
+
+- [http://gafeedr.surge.sh/](http://gafeedr.surge.sh/)
+- [https://www.reddit.com/top.json](https://www.reddit.com/top.json)
+
+
 ### Working Locally With JSON
 
 JSON is the standard format to orgranize data for servers to send and receive data.  It's so popular that JS has two methods to package it for sending and receiving:
@@ -126,19 +182,27 @@ JSON is the standard format to orgranize data for servers to send and receive da
 - JSON.stringify()
 - JSON.parse()
 
-## What Is An API Key? (5 minutes / 0:25)
+One instance where these methods can be useful is when you need to compare two different arrays or objects.
 
-While the majority of APIs are free to use, many of them require an API "key" that identifies the developer requesting data access. This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.
+```
+// what will the result of this comparison be?
 
-**Try hitting the [Giphy](https://api.giphy.com/) API...**
+let arr1 = [1,2,3];
+let arr2 = [1,2,3];
 
-* No key: [http://api.giphy.com/v1/gifs/search?q=funny+cat](http://api.giphy.com/v1/gifs/search?q=funny+cat)
+arr1 == arr2
+```
 
-* With key: [http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC](http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC)
+Now with **.stringify()**
 
-**It is very important that you not push your API keys to a public Github repo.**
+```
+// what will the result of this comparison be?
 
-> This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
+let arr1 = [1,2,3];
+let arr2 = [1,2,3];
+
+JSON.stringify(arr1) == JSON.stringify(arr2)
+```
 
 ## AJAX (5 minutes / 0:30)
 
@@ -168,7 +232,7 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 ## GET Data From an API Using AJAX
 
-### I Do: GET From OMDB (15 minutes / 1:00)
+### I Do: GET From Swapi (15 minutes / 1:00)
 
 > **Do not follow along for this portion of the lesson.** You will have the opportunity to do it yourself afterwards.
 
