@@ -8,7 +8,6 @@
 - Use jQuery's `$.ajax()` method to make GET requests for data.
 - Use jQuery's "promise-like" methods to handle AJAX responses.
 - Render new HTML content using data loaded from an AJAX request.
-- Perform POST, PUT and DELETE requests to an API to modify data.
 
 ## Exercises\Labs
 
