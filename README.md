@@ -228,17 +228,13 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 </details>
 
 
-## Break (10 minutes / 0:45)
-
 ## GET Data From an API Using AJAX
 
 ### I Do: GET From Swapi (15 minutes / 1:00)
 
 > **Do not follow along for this portion of the lesson.** You will have the opportunity to do it yourself afterwards.
 
-Let's build a very simple app that posts a movie title and poster after searching for it. We'll do this using the [OMDB API](http://www.omdbapi.com/).
-
-**[OMDB movie search](https://github.com/ga-wdi-exercises/omdb-api)**
+**[Swapi](https://swapi.co/api/people/1/)**
 
 The starter code is linked above. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
 
@@ -247,7 +243,7 @@ Let's go ahead and add in the AJAX request...
 ```js
 // Get value from search input field.
 var keyword = $("input[name='keyword']").val();
-var url = "https://www.omdbapi.com/?t="+keyword
+var url = "https://swapi.co/api/people/1/"
 $.ajax({
   url: url,
   type: "GET",
