@@ -10,6 +10,12 @@
 - Render new HTML content using data loaded from an AJAX request.
 - Perform POST, PUT and DELETE requests to an API to modify data.
 
+## Exercises\Labs
+
+- EXERCISE: Think, Pair, Research - 15min
+- EXERCISE: Your First API Key(s) - 10min
+- EXERCISE: Parsing JSON - 15min
+- LAB: GET From RandomUser API - 30min
 
 ## Intro To API's 
 
@@ -67,7 +73,7 @@ Sometimes support for your favorite API ends.  This is an important consideratio
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
 
 
-### ACTIVITY: Think, Pair, Research - 15min
+### EXERCISE: Think, Pair, Research - 15min
 
 Go around the room and capture the industries that students are most interested in and have them find at least 3 possible API's that fall within that scope. They should use the following sites to find the corresponding API's
 
@@ -89,7 +95,7 @@ While the majority of APIs are free to use, many of them require an API "key" th
 > This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
 > 
 
-#### EXERCISE: Your First API Key(s) - 10min
+### EXERCISE: Your First API Key(s) - 10min
 
 As a developer you will need to figure out how to navigate a site and find what your looking for.  No go to the following web sites and sign up for API keys.  
 
