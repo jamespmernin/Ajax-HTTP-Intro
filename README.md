@@ -204,7 +204,7 @@ let arr2 = [1,2,3];
 JSON.stringify(arr1) == JSON.stringify(arr2)
 ```
 
-## AJAX (5 minutes / 0:30)
+## AJAX 
 
 **So we know what an API is. Now what?**
 
@@ -230,7 +230,7 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 ## GET Data From an API Using AJAX
 
-### I Do: GET From Swapi (15 minutes / 1:00)
+### I Do: GET From Swapi 
 
 > **Do not follow along for this portion of the lesson.** You will have the opportunity to do it yourself afterwards.
 
@@ -348,7 +348,7 @@ $.getJSON("http://swapi.co/api/people/1/", function(data) {
 ```
 
 
-### You Do: GET From RandomUser API - 25min
+### LAB: GET From RandomUser API - 30min
 
 Now it's your turn to attempt the same but using the [RANDOMUSER API](https://randomuser.me/)
 
@@ -372,7 +372,7 @@ When the page is refreshed.
 #### Bonus I
 Add a "NEXT" and "PREVIOUS" button to the page.
 
-## Conclusion (5 mins)
+## Conclusion 
 
 - What is an API?
 - Why are APIs useful/important?
