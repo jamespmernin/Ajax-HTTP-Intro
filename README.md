@@ -236,13 +236,18 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 **[Swapi](https://swapi.co/api/people/1/)**
 
-The starter code is linked above. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
+The example we are using will be in demo\swapi folder. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
 
-Let's go ahead and add in the AJAX request...
+There are several tools that allow you to make an AJAX request.  This lecture focuses on using jQuery which provides a us a few options:
+
+- low level request
+- high level request
+
+### Low Level Request
+
+Let's go ahead and start with low level first.
 
 ```js
-// Get value from search input field.
-var keyword = $("input[name='keyword']").val();
 var url = "https://swapi.co/api/people/1/"
 $.ajax({
   url: url,
@@ -252,6 +257,7 @@ $.ajax({
 ```
 
 `$.ajax` takes an object as an argument with at least three key-value pairs...
+
   1. The URL endpoint for the JSON object.
   2. Type of HTTP request.
   3. Datatype. Usually JSON.
@@ -260,7 +266,7 @@ $.ajax({
 
   <summary><strong>Q: How did we know which URL to use?</strong></summary>
 
-  > The [OMDB API documentation](http://www.omdbapi.com/)
+  > The [Swapi](https://swapi.co/api/people/1/)
 
 </details>
 
@@ -323,165 +329,48 @@ A promise method that is executed regardless of whether the AJAX call succeeds o
 });
 ```
 > `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call. While technically not necessary, it certainly doesn't hurt to include.
+> 
 
-### You Do: GET From OMDB (10 minutes / 1:10)
-
-Now it's your turn to do the same. Start by cloning down the starter code...
-
-`$ git clone git@github.com:ga-wdi-exercises/omdb-api.git`
-
-Then you may either walk through the specific steps outlined in the previous section or try to do it yourself using this pseudocode...
+### High Level Request
 
 ```
-When the user clicks the search button.
-  Store the search term.
-  Create and store the URL.
+$.get("http://swapi.co/api/people/1/", function(data) {
+      console.log(data)
+ });
+```
+
+JSON specific request.
+
+```
+$.getJSON("http://swapi.co/api/people/1/", function(data) {
+      console.log(data)
+ });
+```
+
+
+### You Do: GET From RandomUser API - 25min
+
+Now it's your turn to attempt the same but using the [RANDOMUSER API](https://randomuser.me/)
+
+**Requirements:**
+
+- Update the **makeCall()** function to make an API call using jQuery for a random user that passed the results to the getData() function
+- Update the the **getData()** function to map the JSON keys to the corresponding variables
+- Update the **addEventListeners()** function to display the data that corresponds with that icon.  
+
+Here is the pseduocode for this assignment
+
+```
+When the page is refreshed.
+  Make an AJAX call to randomuser api for a random user.
+  Update the page with the new info.
   Make an AJAX call, indicating the proper URL, type and data type.
     Indicate what should be done after a successful API call.
     Indicate what should be done after a failed API call.
 ```
 
 #### Bonus I
-
-You'll notice we're only receiving one movie in the API response. Use the OMDB Documentation to figure out how to return **multiple** movies.
-
-#### Bonus II
-
-Instead of just logging the API response to the console, append it to the page!
-
-## Another API: Tunr
-
-Now let's take a look at an API that resembles those that we'll be working with in class over the next few weeks: Tunr. In its full form, Tunr is an app that lists artists and songs. The link below will take you to the API for the app (i.e., JSON representations of said artists and songs).
-
-**[Check it out.](https://tunr-api.herokuapp.com)**
-
-### Set Up (5 minutes / 1:15)
-
-We will create a small app that will allow us to interact with the Tunr API. Start out by cloning down the starter code...
-
-`$ git clone git@github.com:ga-wdi-exercises/tunr-ajax.git`
-
-Change into that directory and open its files in Atom. We will only be adding code to `script.js`. Also take a look at the interface we'll be using by opening `index.html` in Chrome.
-
-### You Do: GET (10 minutes / 1:25)
-
-Start by creating an AJAX `GET` request to Tunr that returns **all artists**.
-* It should be triggered when the user clicks on the big "GET" button.
-* If the AJAX call is successful, it should print the response to the console.
-* If the AJAX call is failure, it should print the word "FAIL" as well as the response to the console.
-
-> Think about what we need to make this `GET` request. What might we not need that we did making an AJAX call to OMDB (or vice versa)?
-
-#### Bonus
-
-Render the response on the page. You can modify `index.html` to do this.
-
-> If we access the response object, we can see all of the artists that were seeded in the database. Inside the done promise, we can interact with and display all the contents of the response.
-
-### I Do: POST (15 minutes / 1:40)
-
-> **Do not follow along for this portion of the lesson.** You will have the opportunity to do it yourself afterwards.
-
-Let's try and create an artist using AJAX. In `script.js`...
-
-```js
-$("#post").on("click", function(){
-  $.ajax({
-    type: 'POST',
-    data: {
-      artist: {
-        name: "Limp Bizkit",
-        photo_url: "http://sessionsx-magazine.itibitiventuresi.netdna-cdn.com/wp-content/uploads/2016/01/Featured-What-Happened-To-Limp-Bizkit-.jpg",
-        nationality: "USA"
-      }
-    },
-    dataType: 'json',
-    url: "https://tunr-api.herokuapp.com/artists"
-  }).done(function(response) {
-    console.log(response);
-  }).fail(function(response){
-    console.log("Ajax get request failed");
-  });
-});
-```
-
-As you can see, every time we click on this button another artist is generated. We can now `POST` things to our database on the client side. But there's a problem here: we've hardcoded the attributes.
-
-<details>
-  <summary><strong>Q: How might we be able to dynamically acquire data on the client side instead of hardcoding values?</strong></summary>
-
-  > By using the values the user enters into the input fields.
-
-</details>
-
-Let's try that out...
-
-```js
-$("#post").on("click", function(){
-    var name = $("#artist-name").val();
-    var photoUrl = $("#artist-photo-url").val();
-    var nationality = $("#artist-nationality").val();
-    $.ajax({
-      type: 'POST',
-      data: {
-        artist: {
-          photo_url: photoUrl,
-          name: name,
-          nationality: nationality
-        }
-      },
-      dataType: 'json',
-      url: "https://tunr-api.herokuapp.com/artists"
-    }).done(function(response) {
-      console.log(response)
-      $("ul").append("<li><a href='/artists/" + response.id + "'>" + response.name + "</a></li>")
-    }).fail(function(response){
-      console.log("ajax post request failed")
-    });
-  });
-```
-### You Do: POST (10 minutes / 1:50)
-
-Now you try it. Again, feel free to reference the code above or give it a shot only using the pseudocode below.
-
-```
-When the user clicks the POST button.
-  Store the name, photo URL and nationality.
-  Make an AJAX call, indicating the proper URL, type and data type.
-    Indicate what should be done after a successful API call.
-    Indicate what should be done after a failed API call.
-```
-
-## Break (10 minutes / 2:05)
-
-### You Do: PUT and DELETE (Rest of the Lesson)
-
-You now know enough to tackle sending `PUT` (updating an artist) and `DELETE` (deleting an artist) AJAX requests on your own! One thing to keep in mind as you're working on these...
-
-<details>
-
-  <summary><strong>Q: How can we identify which artist we want to update or delete in an AJAX call? (Hint: take a look at the HTTP request table earlier in this lesson)</strong></summary>
-
-  > By adding an id (or unique numerical identifier) to the end of the URL.
-
-</details>
-
-Since you will all be modifying the same API, **please only update or delete artists that you yourself have created!**
-
-Some additional notes...
-* You can hardcode an artist id into your AJAX request. Don't worry about taking that in as a user input.
-* You do not have to render the results of a `PUT` or `DELETE` request on the page. That's a bonus.
-
-#### Bonuses
-
-* If you haven't already, make it so that a successful `GET` request renders artist names in the browser.
-* After a successful `POST` `PUT` or `DELETE` request, update the list of artists in the browser to reflect the changes made to the API.
-
-#### Solutions
-
-For reference in case you feel stuck. Don't copy and paste! Take a look and then try to implement yourself from memory.
-* [`PUT`](https://github.com/ga-wdi-exercises/tunr-ajax/commit/8cf4b74603c065e5d6a417315ebeba82bcdaa900)
-* [`DELETE`](https://github.com/ga-wdi-exercises/tunr-ajax/commit/6706d2bed4aaca253f9a58c55e4b136e232537cf)
+Add a "NEXT" and "PREVIOUS" button to the page.
 
 ## Conclusion (5 mins)
 
@@ -491,14 +380,8 @@ For reference in case you feel stuck. Don't copy and paste! Take a look and then
 - What information might we need to pass into an AJAX call?
 - How do we go about interacting with the response of an AJAX call?
 
-## Hungry For More?
-
-[Take a look at the prompts in this week's lab.](https://github.com/ga-wdi-exercises/fun_with_apis#need-an-app-idea)
-
 ## Resources
 
-* [Andy's blog](http://andrewsunglaekim.github.io/Server-side-api-calls-wrapped-in-ruby-classes/)
 * [Postman](https://www.getpostman.com/)
 * [Intro to APIs](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
-* [Practice with APIs](https://github.com/ga-dc/weather_teller)
 * [Beautify your JSON in Chrome](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en)
