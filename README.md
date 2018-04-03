@@ -5,24 +5,24 @@
 - Describe what an API is and why we might use one.
 - Understand the format of API data.
 - Explain the common role of JSON on the web.
-- Use jQuery's `$.ajax()` method to make GET requests for data.
-- Use jQuery's "promise-like" methods to handle AJAX responses.
+- Use `fetch` to make GET requests for data.
+- Describe what a promise is and how to resolve the promise returned from `fetch`
 - Render new HTML content using data loaded from an AJAX request.
 
-## Exercises\Labs
+## Exercises Labs
 
 - EXERCISE: Think, Pair, Research - 15min
 - EXERCISE: Your First API Key(s) - 10min
 - EXERCISE: Parsing JSON - 15min
 - LAB: GET From RandomUser API - 30min
 
-## Intro To API's 
+## Intro To API's
 
 **What is an API?**
 
 > Basically, an API is a service that provides raw data for public use.
 
-API stands for "Application Program Interface" and technically applies to all of software design. The DOM and jQuery are actually examples of APIs! Since the explosion of information technology, however, the term now commonly refers to web URLs that can be accessed for raw data.
+API stands for "Application Program Interface" and technically applies to all of software design. The DOM and `fetch` are actually examples of APIs! Since the explosion of information technology, however, the term now commonly refers to web URLs that can be accessed for raw data.
 
 APIs publish data for public use. As third-party software developers, we can access an organization's API and use their data within our own applications.
 
@@ -46,15 +46,15 @@ As we move into building single page applications, now is the perfect time to st
 * [http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL](http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL)
 
 > Does the JSON look unreadable in the browser? If you're using Chrome, install the [JSON View plugin](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en).
-> 
+>
 
-## Where Do We Find APIs? 
+## Where Do We Find APIs?
 
 APIs are published everywhere. Chances are good that most major content sources you follow online publish their data in some type of serialized format. Heck, [even Marvel publishes an API](http://developer.marvel.com/documentation/getting_started). Look around for a "Developers" section on major websites.
 
 #### List Of Commonly Used API's
 
-Here is a short list of commonly used API's for testing purposes. 
+Here is a short list of commonly used API's for testing purposes.
 
 | API | Sample URL |
 |-----|------------|
@@ -65,7 +65,7 @@ Here is a short list of commonly used API's for testing purposes.
 
 #### API's Are No Longer Supported
 
-Sometimes support for your favorite API ends.  This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project. 
+Sometimes support for your favorite API ends.  This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project.
 
 | API | Sample URL |
 |-----|------------|
@@ -79,7 +79,7 @@ Go around the room and capture the industries that students are most interested 
 - [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
 -  [Public APIs Directory](http://www.publicapis.com/).
 
-## What Is An API Key? 
+## What Is An API Key?
 
 While the majority of APIs are free to use, many of them require an API "key" that identifies the developer requesting data access. This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.
 
@@ -92,7 +92,7 @@ While the majority of APIs are free to use, many of them require an API "key" th
 **It is very important that you not push your API keys to a public Github repo.**
 
 > This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
-> 
+>
 
 ### EXERCISE: Your First API Key(s) - 10min
 
@@ -106,7 +106,7 @@ As a developer you will need to figure out how to navigate a site and find what 
 
 Sometimes thats's all we need. All this information, from all these browsers and all these servers, has to travel through the network. That's almost certainly the slowest part of the request cycle. We want to minimize the bits. There are times when we just need the data. For those times, we want a concise format.   
 
-### What is Serialized Data? 
+### What is Serialized Data?
 
 All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is **structured data** (i.e., arrays and hashes). Thus, native data structures can be **serialized** into a string representation of the data. This string can be transmitted and then parsed back into data by another web agent.  
 
@@ -209,7 +209,7 @@ let arr2 = [1,2,3];
 JSON.stringify(arr1) == JSON.stringify(arr2)
 ```
 
-## AJAX 
+## AJAX
 
 **So we know what an API is. Now what?**
 
@@ -235,7 +235,7 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 ## GET Data From an API Using AJAX
 
-### I Do: GET From Swapi 
+### I Do: GET From Swapi
 
 > **Do not follow along for this portion of the lesson.** You will have the opportunity to do it yourself afterwards.
 
@@ -243,113 +243,183 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 The example we are using will be in demo\swapi folder. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
 
-There are several tools that allow you to make an AJAX request.  This lecture focuses on using jQuery which provides a us a few options:
+There are several tools that allow you to make an AJAX request.  This lecture focuses on using `fetch` which provides a us a few options:
 
 - low level request
 - high level request
 
-### Low Level Request
+## Asynchronous vs Synchronous
 
-Let's go ahead and start with low level first.
+What is a synchronous operation?
+
+- Sync: A synchronous operation runs immediately after the previous operation and the subsequent operation is not run until after the synchronous completes. This is no problem if the operation is immediate (dependent only on values already present in the environment). However, any operations that take significant time to complete (require interaction with some outside resource) will block subsequent operations. Because JavaScript is single threaded (can only do one thing at a time), blocking operations jam up the entire application making for an intolerable user experience.
+
+What is an asynchronous operation?
+
+- Async: JavaScript environments (i.e. Node.js and browsers) provide built in utilities for doing work that takes time without blocking subsequent calls. The fundemental concept that permits this is the callback, a function provided to the built in utility that the utility knows to call when the long running operation completes. The environment then takes care of executing the callback when the operation completes and the environment is not occupied with other work. To understand "not occupied with other work", consider out coffee shop example. The cashier has two jobs, take orders (sending them to the kitchen) and serve the drinks as they come out. "Not occupied with other work" just means that if the cashier is taking a new order, the kitchen will wait until the cashier is free to ask them to serve the drink.
+
+### Synchronous example:
+```js
+
+/**
+ * Synchronous data fetching the old way (using XHR)
+ */
+
+console.log('step 1: declare request');
+const request = new XMLHttpRequest();
+
+console.log('Step 2: open request.');
+// `false` makes the request synchronous
+request.open('GET', 'http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC', false);
+
+console.log('Step 3: send request.');
+// The null parameter indicates that no body content is needed for the GET request.
+request.send(null);
+
+////// The code is BLOCKED right here. Nothing will happen
+////// until the response comes back.
+
+console.log('Step 4: log the response text.');
+// servers send back a status code. (200 means your request was okay)
+console.log(request);
+
+console.log('Synchronous data request is complete.')
+
+
+```
+### Asynchronous Example
+```js
+/**
+ * Asynchronous data fetching the old way
+ */
+
+function logResponse(data){
+  console.log('response complete ====>', data);
+}
+
+function get(url, callback){
+  console.log('step 2: declare request.');
+  const request = new XMLHttpRequest();
+
+  console.log('Step 3: open request.');
+  request.open('GET', url, true);
+
+  console.log('Step 4: set the request state change handler to call the callback when status = 200');
+  request.onreadystatechange = function() {
+    if (request.readyState === 4 && request.status === 200) {
+      callback(request);
+    }
+  }
+
+  console.log('Step 5: send request.');
+  request.send();
+}
+
+console.log('Step 1: invoke AJAX function.');
+get('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC', logResponse);
+
+console.log('Step 6: End of JS file.');
+
+```
+
+### What is a Promise?
+
+Think about the request we made above to giphy.
+
+What are the possible outcomes of this request?
+
+1. It works; we get the data we requested
+2. It doesn't; thanks to web standards, we at least get some information about why it didn't work.
+
+And before one of these two things happen, it hasn't happened and so we don't know which it is going to be.
+
+All asynchronous operations can be described similarly. Either something is:
+
+1. **pending** and we are anticipating the completion of the asynchronous operation
+2. **fulfilled** and the asynchronous operation successfully did what we asked of it
+3. **rejected** and the asynchronous operation ran into a problem and wasn't able to complete its task
+
+A promise is an object that represents the **state** of an asynchronous operation.
+
+Promises (which can be [implemented](https://www.promisejs.org/implementing/) in just a few lines of code) started off as libraries have become a built in part of the JavaScript language. Almost all new libraries dealing with asynchronicity abstract it with Promises.
+
+### Responding to Async Operations
+
+The most important thing we want to do with an async operation is attach behavior to it by providing it a callback. Promises have a method `then` which takes a callback which the `Promise` calls when it is fulfilled. The interesting thing with promises is that the `then` method returns a new promise which will **resolve** based on the value returned by the callback passed to `then`.
+
+
+#### Fetch
 
 ```js
-var url = "https://swapi.co/api/people/1/"
-$.ajax({
-  url: url,
-  type: "GET",
-  dataType: "json"
+fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
+.then(function (response) {
+  return response.json()
+})
+.then(function (json) {
+  console.log(json)
+  return json
 })
 ```
 
-`$.ajax` takes an object as an argument with at least three key-value pairs...
+One of the more confusing things about the `fetch` api is the fact that we have two promises here. The reason for this is `fetch` gives us a lot of control over our requests. We are able to look at the request headers as the request body is loading. The `.json()` method returns a promise representing the loading of the body and the conversion of the body to JSON.
 
-  1. The URL endpoint for the JSON object.
-  2. Type of HTTP request.
-  3. Datatype. Usually JSON.
+##### When Things Go Wrong
 
-<details>
-
-  <summary><strong>Q: How did we know which URL to use?</strong></summary>
-
-  > The [Swapi](https://swapi.co/api/people/1/)
-
-</details>
-
-<details>
-
-  <summary><strong>Q: What does it mean to set `type` to `GET`?</strong></summary>
-
-  > We are **reading** the response sent back to us. To `GET` means to "read."
-
-</details>
-
-<details>
-
-  <summary><strong>Q: So our application can make an AJAX call. Why aren't we seeing anything after clicking "Search"?</strong></summary>
-
-  > We haven't told our application what to do once it receives a response.
-
-</details>
-
-### Promises
-
-Now we need to tell our AJAX method what to do next. We can do this by doing something with the its return value, which comes in the form of a **promise**. We can use **promise methods** to tell the `$.ajax` request what to do if the request is successful or not. In this case, we are going to add three...
-
-#### `.done`
-
-A promise method for when the AJAX call is successful...
+Promises also give us the `.catch` method for when something goes wrong.
 
 ```js
-.done(function(response){
-  console.log(response);
-});
+fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
+.then(function (response) {
+  return response.json()
+})
+.then(function (json) {
+  console.log(json)
+  return json
+})
+.catch(function (err) {
+  console.log(err)
+})
 ```
 
-<details>
-  <summary><strong>Q: What are we passing into the `.done` promise method? Does this remind you of anything we've done previously in class?</strong></summary>
-
-  > `.done` requires a callback that determines what we do after a successful AJAX call.
-
-</details>
-
-#### `.fail`
-
-A promise method for when the AJAX call fails...
+[Syntax](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch):
 
 ```js
-.fail(function (){
-  console.log("fail");
-});
+    // much cleaner than XHR. - default is GET
+fetch(url)
+.then(function(res){
+    // do something when promise is fulfilled
+})
+.then(function(res)){
+    // can chain additional promises (Dom manip?)
+})
+.catch(function(err){
+    // do something when promise is rejected (error handler)
+})
+
+fetch(url, {
+  // in here we can add headers, and change other settings
+  method: 'GET'
+})
+.then(function (res) {
+  // do something when promise is fulfilled
+})
+.catch(function (err) {
+  // do something when promise is rejected (error handler)
+})
+
 ```
 
-> `.fail` requires a callback that determines what we do after an unsuccessful AJAX call.
-
-#### `.always`
-
-A promise method that is executed regardless of whether the AJAX call succeeds or fails...
-
+### Demo
 ```js
-.always(function(){
-  console.log("Something happens");
-});
-```
-> `.always` requires a callback that determines what we do regardless of a successful or unsuccessful call. While technically not necessary, it certainly doesn't hurt to include.
-> 
 
-### High Level Request
-
-```
-$.get("http://swapi.co/api/people/1/", function(data) {
-      console.log(data)
- });
-```
-
-JSON specific request.
-
-```
-$.getJSON("http://swapi.co/api/people/1/", function(data) {
-      console.log(data)
- });
+fetch('https://swapi.co/api/people')
+  .then(function(response) {
+    console.log('http response' ,response);  // initial response from server
+    return response.json(); // returns json from response after response has been read
+  })
+  .then(function(jsonData) { // chaining promise
+    console.log(jsonData);
+  });
 ```
 
 
@@ -359,7 +429,7 @@ Now it's your turn to attempt the same but using the [RANDOMUSER API](https://ra
 
 **Requirements:**
 
-- Update the **makeCall()** function to make an API call using jQuery for a random user that passed the results to the getData() function
+- Update the **makeCall()** function to make an API call using `fetch` for a random user that passed the results to the getData() function
 - Update the the **getData()** function to map the JSON keys to the corresponding variables
 - Update the **addEventListeners()** function to display the data that corresponds with that icon.  
 
@@ -377,7 +447,7 @@ When the page is refreshed.
 #### Bonus I
 Add a "NEXT" and "PREVIOUS" button to the page.
 
-## Conclusion 
+## Conclusion
 
 - What is an API?
 - Why are APIs useful/important?
