@@ -352,13 +352,13 @@ The most important thing we want to do with an async operation is attach behavio
 
 ```js
 fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
-.then(function (response) {
-  return response.json()
-})
-.then(function (json) {
-  console.log(json)
-  return json
-})
+  .then(function (response) {
+    return response.json()
+  })
+  .then(function (json) {
+    console.log(json)
+    return json
+  })
 ```
 
 One of the more confusing things about the `fetch` api is the fact that we have two promises here. The reason for this is `fetch` gives us a lot of control over our requests. We are able to look at the request headers as the request body is loading. The `.json()` method returns a promise representing the loading of the body and the conversion of the body to JSON.
@@ -369,16 +369,16 @@ Promises also give us the `.catch` method for when something goes wrong.
 
 ```js
 fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
-.then(function (response) {
-  return response.json()
-})
-.then(function (json) {
-  console.log(json)
-  return json
-})
-.catch(function (err) {
-  console.log(err)
-})
+  .then(function (response) {
+    return response.json()
+  })
+  .then(function (json) {
+    console.log(json)
+    return json
+  })
+  .catch(function (err) {
+    console.log(err)
+  })
 ```
 
 [Syntax](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch):
@@ -386,26 +386,25 @@ fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
 ```js
     // much cleaner than XHR. - default is GET
 fetch(url)
-.then(function(res){
-    // do something when promise is fulfilled
-})
-.then(function(res)){
-    // can chain additional promises (Dom manip?)
-})
-.catch(function(err){
-    // do something when promise is rejected (error handler)
-})
+  .then(function(res){
+      // do something when promise is fulfilled
+  })
+  .then(function(res)){
+      // can chain additional promises (Dom manip?)
+  })
+  .catch(function(err){
+      // do something when promise is rejected (error handler)
+  })
 
 fetch(url, {
   // in here we can add headers, and change other settings
   method: 'GET'
-})
-.then(function (res) {
-  // do something when promise is fulfilled
-})
-.catch(function (err) {
-  // do something when promise is rejected (error handler)
-})
+}).then(function (res) {
+    // do something when promise is fulfilled
+  })
+  .catch(function (err) {
+    // do something when promise is rejected (error handler)
+  })
 
 ```
 
