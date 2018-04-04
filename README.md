@@ -65,7 +65,7 @@ Here is a short list of commonly used API's for testing purposes.
 
 #### API's Are No Longer Supported
 
-Sometimes support for your favorite API ends.  This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project.
+Sometimes API's change their data structure or support structure.  This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project. OMBD was free to use but never had required  license, however they changed this model and it's required. 
 
 | API | Sample URL |
 |-----|------------|
