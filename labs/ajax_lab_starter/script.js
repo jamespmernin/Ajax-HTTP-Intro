@@ -5,8 +5,6 @@ $(document).ready(function() {
     // ADD YOUR AJAX CALL HERE FOR RANDOMUSER API
   }
 
-  
-
   var getData = function(data){
     console.log(data)
     var first_name;
