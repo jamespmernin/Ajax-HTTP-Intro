@@ -94,6 +94,21 @@ While the majority of APIs are free to use, many of them require an API "key" th
 > This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
 >
 
+### Possible API's
+
+#### Music
+- https://bandcamp.com/developer
+- https://developers.soundcloud.com/docs/api/reference
+
+#### Gov
+- https://developer.cityofnewyork.us/api/open311-inquiry
+
+#### Games
+- https://igdb.github.io/api/
+
+#### Social Media
+-https://developer.twitter.com/en/docs/tweets/search/overview
+
 ### EXERCISE: Your First API Key(s) - 10min
 
 As a developer you will need to figure out how to navigate a site and find what your looking for.  No go to the following web site(s) and sign up for an API key(s).  
