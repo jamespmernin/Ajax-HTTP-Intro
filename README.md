@@ -96,9 +96,8 @@ While the majority of APIs are free to use, many of them require an API "key" th
 
 ### EXERCISE: Your First API Key(s) - 10min
 
-As a developer you will need to figure out how to navigate a site and find what your looking for.  No go to the following web sites and sign up for API keys.  
+As a developer you will need to figure out how to navigate a site and find what your looking for.  No go to the following web site(s) and sign up for an API key(s).  
 
-- [OpenWeatherMap.org](https://openweathermap.org/appid)
 - [Giphy.com](https://giphy.com/)
 
 
