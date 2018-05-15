@@ -2,21 +2,21 @@
 
 ## Learning Objectives
 
-- Describe what an API is and why we might use one.
-- Understand the format of API data.
-- Explain the common role of JSON on the web.
-- Use `fetch` to make GET requests for data.
-- Describe what a promise is and how to resolve the promise returned from `fetch`
-- Render new HTML content using data loaded from an AJAX request.
+* Describe what an API is and why we might use one.
+* Understand the format of API data.
+* Explain the common role of JSON on the web.
+* Use `fetch` to make GET requests for data.
+* Describe what a promise is and how to resolve the promise returned from `fetch`
+* Render new HTML content using data loaded from an AJAX request.
 
 ## Exercises Labs
 
-- EXERCISE: Think, Pair, Research - 15min
-- EXERCISE: Your First API Key(s) - 10min
-- EXERCISE: Parsing JSON - 15min
-- LAB: GET From RandomUser API - 30min
+* EXERCISE: Think, Pair, Research - 15min
+* EXERCISE: Your First API Key(s) - 10min
+* EXERCISE: Parsing JSON - 15min
+* LAB: GET From RandomUser API - 30min
 
-## Intro To API's
+## Intro To APIs
 
 **What is an API?**
 
@@ -29,12 +29,11 @@ APIs publish data for public use. As third-party software developers, we can acc
 <details>
   <summary><strong>Q: Why do we care?</strong></summary>
 
-  > Why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.
+> Why recreate data when we don't have to? Think about past projects or ideas that would be easier if you could pull in data already gathered elsewhere.
 
-  > APIs can provide us with data that would we would otherwise not be able to create ourselves.
+> APIs can provide us with data that would we would otherwise not be able to create ourselves.
 
 </details>
-
 
 As we move into building single page applications, now is the perfect time to start understanding how to obtain data on the client side and then render it on the browser.
 
@@ -46,38 +45,36 @@ As we move into building single page applications, now is the perfect time to st
 * [http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL](http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL)
 
 > Does the JSON look unreadable in the browser? If you're using Chrome, install the [JSON View plugin](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en).
->
 
 ## Where Do We Find APIs?
 
 APIs are published everywhere. Chances are good that most major content sources you follow online publish their data in some type of serialized format. Heck, [even Marvel publishes an API](http://developer.marvel.com/documentation/getting_started). Look around for a "Developers" section on major websites.
 
-#### List Of Commonly Used API's
+#### List Of Commonly Used APIs
 
-Here is a short list of commonly used API's for testing purposes.
+Here is a short list of commonly used APIs for testing purposes.
 
-| API | Sample URL |
-|-----|------------|
-| **[This for That](http://itsthisforthat.com/)** | http://itsthisforthat.com/api.php?json |
-| **[Giphy](https://github.com/Giphy/GiphyAPI)** | http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC |
-| **[Stocks](http://dev.markitondemand.com/MODApis/)** | http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL |
-| **[Swapi](https://swapi.co/api/people/1/)** | https://swapi.co/api/people/1/ |
+| API                                                  | Sample URL                                                            |
+| ---------------------------------------------------- | --------------------------------------------------------------------- |
+| **[This for That](http://itsthisforthat.com/)**      | http://itsthisforthat.com/api.php?json                                |
+| **[Giphy](https://github.com/Giphy/GiphyAPI)**       | http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC |
+| **[Stocks](http://dev.markitondemand.com/MODApis/)** | http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL               |
+| **[Swapi](https://swapi.co/api/people/1/)**          | https://swapi.co/api/people/1/                                        |
 
-#### API's Are No Longer Supported
+#### APIs Are No Longer Supported
 
-Sometimes API's change their data structure or support structure.  This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project. OMBD was free to use but never had required  license, however they changed this model and it's required. 
+Sometimes APIs change their data structure or support structure. This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project. OMBD was free to use but never had required license, however they changed this model and it's required.
 
-| API | Sample URL |
-|-----|------------|
+| API                                     | Sample URL                                             |
+| --------------------------------------- | ------------------------------------------------------ |
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
-
 
 ### EXERCISE: Think, Pair, Research - 15min
 
-Go around the room and capture the industries that students are most interested in and have them find at least 3 possible API's that fall within that scope. They should use the following sites to find the corresponding API's
+Go around the room and capture the industries that students are most interested in and have them find at least 3 possible APIs that fall within that scope. They should use the following sites to find the corresponding APIs
 
-- [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
--  [Public APIs Directory](http://www.publicapis.com/).
+* [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
+* [Public APIs Directory](http://www.publicapis.com/).
 
 ## What Is An API Key?
 
@@ -92,39 +89,41 @@ While the majority of APIs are free to use, many of them require an API "key" th
 **It is very important that you not push your API keys to a public Github repo.**
 
 > This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
->
 
-### Possible API's
+### Possible APIs
 
 #### Music
-- https://bandcamp.com/developer
-- https://developers.soundcloud.com/docs/api/reference
+
+* https://bandcamp.com/developer
+* https://developers.soundcloud.com/docs/api/reference
 
 #### Gov
-- https://developer.cityofnewyork.us/api/open311-inquiry
+
+* https://developer.cityofnewyork.us/api/open311-inquiry
 
 #### Games
-- https://igdb.github.io/api/
+
+* https://igdb.github.io/api/
 
 #### Social Media
+
 -https://developer.twitter.com/en/docs/tweets/search/overview
 
 ### EXERCISE: Your First API Key(s) - 10min
 
-As a developer you will need to figure out how to navigate a site and find what your looking for.  No go to the following web site(s) and sign up for an API key(s).  
+As a developer you will need to figure out how to navigate a site and find what your looking for. No go to the following web site(s) and sign up for an API key(s).
 
-- [Giphy.com](https://giphy.com/)
-
+* [Giphy.com](https://giphy.com/)
 
 ### Why Just Data?
 
-Sometimes thats's all we need. All this information, from all these browsers and all these servers, has to travel through the network. That's almost certainly the slowest part of the request cycle. We want to minimize the bits. There are times when we just need the data. For those times, we want a concise format.   
+Sometimes thats's all we need. All this information, from all these browsers and all these servers, has to travel through the network. That's almost certainly the slowest part of the request cycle. We want to minimize the bits. There are times when we just need the data. For those times, we want a concise format.
 
 ### What is Serialized Data?
 
-All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is **structured data** (i.e., arrays and hashes). Thus, native data structures can be **serialized** into a string representation of the data. This string can be transmitted and then parsed back into data by another web agent.  
+All data sent via HTTP are strings. Unfortunately, what we really want to pass between web applications is **structured data** (i.e., arrays and hashes). Thus, native data structures can be **serialized** into a string representation of the data. This string can be transmitted and then parsed back into data by another web agent.
 
-There are **two** major serialized data formats...  
+There are **two** major serialized data formats...
 
 #### JSON
 
@@ -132,12 +131,10 @@ There are **two** major serialized data formats...
 
 ```json
 {
-  "users": [
-    {"name": "Bob", "id": 23},
-    {"name": "Tim", "id": 72}
-  ]
+  "users": [{ "name": "Bob", "id": 23 }, { "name": "Tim", "id": 72 }]
 }
 ```
+
 > Remember, JSON is a serialized format. While it may look like an object, it needs to be parsed so we can interact with it as a true Javascript object.
 
 #### XML
@@ -162,8 +159,7 @@ There are **two** major serialized data formats...
 
 ### Parsing JSON
 
-You've seen a few examples of JSON and how data can be organized.  Here is the stock quote for Apple that you saw earlier.  If this data was stored in an object how would you return the `Low` and `High` values?
-
+You've seen a few examples of JSON and how data can be organized. Here is the stock quote for Apple that you saw earlier. If this data was stored in an object how would you return the `Low` and `High` values?
 
 ```
 {
@@ -190,16 +186,15 @@ You've seen a few examples of JSON and how data can be organized.  Here is the s
 
 Working in groups can you parse the following JSON's data and determine what data is needed to populate the articles on the [GAFeddr](http://gafeedr.surge.sh/) web site?
 
-- [http://gafeedr.surge.sh/](http://gafeedr.surge.sh/)
-- [https://www.reddit.com/top.json](https://www.reddit.com/top.json)
-
+* [http://gafeedr.surge.sh/](http://gafeedr.surge.sh/)
+* [https://www.reddit.com/top.json](https://www.reddit.com/top.json)
 
 ### Working Locally With JSON
 
-JSON is the standard format to orgranize data for servers to send and receive data.  It's so popular that JS has two methods to package it for sending and receiving:
+JSON is the standard format to orgranize data for servers to send and receive data. It's so popular that JS has two methods to package it for sending and receiving:
 
-- JSON.stringify()
-- JSON.parse()
+* JSON.stringify()
+* JSON.parse()
 
 One instance where these methods can be useful is when you need to compare two different arrays or objects.
 
@@ -231,21 +226,20 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 **AJAX**, which stands for "Asynchronous Javascript and XML," is the method through which we are able to make HTTP requests. The standard requests we will be making are `GET` `POST` `PUT` `PATCH` and `DELETE`.
 
-| Type of Request | What's It Do? | An Example URL |
-|-----------------|---------------|----------------|
-| `GET`  | Read | [http://swapi.co/api/planets/](http://swapi.co/api/planets/) |
-| `POST` | Create | [http://swapi.co/api/planets/](http://swapi.co/api/planets/) |
-| `PUT` | Update | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
-| `PATCH` | Update | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
-| `DELETE` | Delete | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
+| Type of Request | What's It Do? | An Example URL                                                  |
+| --------------- | ------------- | --------------------------------------------------------------- |
+| `GET`           | Read          | [http://swapi.co/api/planets/](http://swapi.co/api/planets/)    |
+| `POST`          | Create        | [http://swapi.co/api/planets/](http://swapi.co/api/planets/)    |
+| `PUT`           | Update        | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
+| `PATCH`         | Update        | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
+| `DELETE`        | Delete        | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
 
 <details>
   <summary><strong>Q: Why do you think there is a "2" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</strong></summary>
 
-  > You'll notice that the URLs for `PUT` `PATCH` and `DELETE` end with a number. That's because these actions are updating or deleting a *particular* student. That number is a unique identifier for a particular student defined on the back-end. More on this next week...
+> You'll notice that the URLs for `PUT` `PATCH` and `DELETE` end with a number. That's because these actions are updating or deleting a _particular_ student. That number is a unique identifier for a particular student defined on the back-end. More on this next week...
 
 </details>
-
 
 ## GET Data From an API Using AJAX
 
@@ -257,24 +251,24 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 The example we are using will be in demo\swapi folder. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
 
-There are several tools that allow you to make an AJAX request.  This lecture focuses on using `fetch` which provides a us a few options:
+There are several tools that allow you to make an AJAX request. This lecture focuses on using `fetch` which provides a us a few options:
 
-- low level request
-- high level request
+* low level request
+* high level request
 
 ## Asynchronous vs Synchronous
 
 What is a synchronous operation?
 
-- Sync: A synchronous operation runs immediately after the previous operation and the subsequent operation is not run until after the synchronous completes. This is no problem if the operation is immediate (dependent only on values already present in the environment). However, any operations that take significant time to complete (require interaction with some outside resource) will block subsequent operations. Because JavaScript is single threaded (can only do one thing at a time), blocking operations jam up the entire application making for an intolerable user experience.
+* Sync: A synchronous operation runs immediately after the previous operation and the subsequent operation is not run until after the synchronous completes. This is no problem if the operation is immediate (dependent only on values already present in the environment). However, any operations that take significant time to complete (require interaction with some outside resource) will block subsequent operations. Because JavaScript is single threaded (can only do one thing at a time), blocking operations jam up the entire application making for an intolerable user experience.
 
 What is an asynchronous operation?
 
-- Async: JavaScript environments (i.e. Node.js and browsers) provide built in utilities for doing work that takes time without blocking subsequent calls. The fundemental concept that permits this is the callback, a function provided to the built in utility that the utility knows to call when the long running operation completes. The environment then takes care of executing the callback when the operation completes and the environment is not occupied with other work. To understand "not occupied with other work", consider out coffee shop example. The cashier has two jobs, take orders (sending them to the kitchen) and serve the drinks as they come out. "Not occupied with other work" just means that if the cashier is taking a new order, the kitchen will wait until the cashier is free to ask them to serve the drink.
+* Async: JavaScript environments (i.e. Node.js and browsers) provide built in utilities for doing work that takes time without blocking subsequent calls. The fundemental concept that permits this is the callback, a function provided to the built in utility that the utility knows to call when the long running operation completes. The environment then takes care of executing the callback when the operation completes and the environment is not occupied with other work. To understand "not occupied with other work", consider out coffee shop example. The cashier has two jobs, take orders (sending them to the kitchen) and serve the drinks as they come out. "Not occupied with other work" just means that if the cashier is taking a new order, the kitchen will wait until the cashier is free to ask them to serve the drink.
 
 ### Synchronous example:
-```js
 
+```js
 /**
  * Synchronous data fetching the old way (using XHR)
  */
@@ -284,7 +278,11 @@ const request = new XMLHttpRequest();
 
 console.log('Step 2: open request.');
 // `false` makes the request synchronous
-request.open('GET', 'http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC', false);
+request.open(
+  'GET',
+  'http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC',
+  false,
+);
 
 console.log('Step 3: send request.');
 // The null parameter indicates that no body content is needed for the GET request.
@@ -297,43 +295,47 @@ console.log('Step 4: log the response text.');
 // servers send back a status code. (200 means your request was okay)
 console.log(request);
 
-console.log('Synchronous data request is complete.')
-
-
+console.log('Synchronous data request is complete.');
 ```
+
 ### Asynchronous Example
+
 ```js
 /**
  * Asynchronous data fetching the old way
  */
 
-function logResponse(data){
+function logResponse(data) {
   console.log('response complete ====>', data);
 }
 
-function get(url, callback){
+function get(url, callback) {
   console.log('step 2: declare request.');
   const request = new XMLHttpRequest();
 
   console.log('Step 3: open request.');
   request.open('GET', url, true);
 
-  console.log('Step 4: set the request state change handler to call the callback when status = 200');
+  console.log(
+    'Step 4: set the request state change handler to call the callback when status = 200',
+  );
   request.onreadystatechange = function() {
     if (request.readyState === 4 && request.status === 200) {
       callback(request);
     }
-  }
+  };
 
   console.log('Step 5: send request.');
   request.send();
 }
 
 console.log('Step 1: invoke AJAX function.');
-get('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC', logResponse);
+get(
+  'http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC',
+  logResponse,
+);
 
 console.log('Step 6: End of JS file.');
-
 ```
 
 ### What is a Promise?
@@ -342,16 +344,16 @@ Think about the request we made above to giphy.
 
 What are the possible outcomes of this request?
 
-1. It works; we get the data we requested
-2. It doesn't; thanks to web standards, we at least get some information about why it didn't work.
+1.  It works; we get the data we requested
+2.  It doesn't; thanks to web standards, we at least get some information about why it didn't work.
 
 And before one of these two things happen, it hasn't happened and so we don't know which it is going to be.
 
 All asynchronous operations can be described similarly. Either something is:
 
-1. **pending** and we are anticipating the completion of the asynchronous operation
-2. **fulfilled** and the asynchronous operation successfully did what we asked of it
-3. **rejected** and the asynchronous operation ran into a problem and wasn't able to complete its task
+1.  **pending** and we are anticipating the completion of the asynchronous operation
+2.  **fulfilled** and the asynchronous operation successfully did what we asked of it
+3.  **rejected** and the asynchronous operation ran into a problem and wasn't able to complete its task
 
 A promise is an object that represents the **state** of an asynchronous operation.
 
@@ -361,18 +363,17 @@ Promises (which can be [implemented](https://www.promisejs.org/implementing/) in
 
 The most important thing we want to do with an async operation is attach behavior to it by providing it a callback. Promises have a method `then` which takes a callback which the `Promise` calls when it is fulfilled. The interesting thing with promises is that the `then` method returns a new promise which will **resolve** based on the value returned by the callback passed to `then`.
 
-
 #### Fetch
 
 ```js
 fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
-.then(function (response) {
-  return response.json()
-})
-.then(function (json) {
-  console.log(json)
-  return json
-})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    console.log(json);
+    return json;
+  });
 ```
 
 One of the more confusing things about the `fetch` api is the fact that we have two promises here. The reason for this is `fetch` gives us a lot of control over our requests. We are able to look at the request headers as the request body is loading. The `.json()` method returns a promise representing the loading of the body and the conversion of the body to JSON.
@@ -383,16 +384,16 @@ Promises also give us the `.catch` method for when something goes wrong.
 
 ```js
 fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
-.then(function (response) {
-  return response.json()
-})
-.then(function (json) {
-  console.log(json)
-  return json
-})
-.catch(function (err) {
-  console.log(err)
-})
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    console.log(json);
+    return json;
+  })
+  .catch(function(err) {
+    console.log(err);
+  });
 ```
 
 [Syntax](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch):
@@ -420,32 +421,31 @@ fetch(url, {
 .catch(function (err) {
   // do something when promise is rejected (error handler)
 })
-
 ```
 
 ### Demo
-```js
 
+```js
 fetch('https://swapi.co/api/people')
   .then(function(response) {
-    console.log('http response' ,response);  // initial response from server
+    console.log('http response', response); // initial response from server
     return response.json(); // returns json from response after response has been read
   })
-  .then(function(jsonData) { // chaining promise
+  .then(function(jsonData) {
+    // chaining promise
     console.log(jsonData);
   });
 ```
 
-
-### LAB: GET From RandomUser API 
+### LAB: GET From RandomUser API
 
 Now it's your turn to attempt the same but using the [RANDOMUSER API](https://randomuser.me/)
 
 **Requirements:**
 
-- Update the **makeCall()** function to make an API call using `fetch` for a random user that passed the results to the getData() function
-- Update the the **getData()** function to map the JSON keys to the corresponding variables
-- Update the **addEventListeners()** function to display the data that corresponds with that icon.  
+* Update the **makeCall()** function to make an API call using `fetch` for a random user that passed the results to the getData() function
+* Update the the **getData()** function to map the JSON keys to the corresponding variables
+* Update the **addEventListeners()** function to display the data that corresponds with that icon.
 
 Here is the pseduocode for this assignment
 
@@ -459,15 +459,16 @@ When the page is refreshed.
 ```
 
 #### Bonus I
+
 Add a "NEXT" and "PREVIOUS" button to the page.
 
 ## Conclusion
 
-- What is an API?
-- Why are APIs useful/important?
-- What is AJAX?
-- What information might we need to pass into an AJAX call?
-- How do we go about interacting with the response of an AJAX call?
+* What is an API?
+* Why are APIs useful/important?
+* What is AJAX?
+* What information might we need to pass into an AJAX call?
+* How do we go about interacting with the response of an AJAX call?
 
 ## Resources
 
