@@ -74,7 +74,7 @@ Sometimes API vendors realize that so many people are using their API that they 
 
 ### EXERCISE: Think, Pair, Research - 15min
 
-Go around the room and capture the industries that students are most interested in and have them find at least 3 possible API's that fall within that scope. They should use the following sites to find the corresponding API's
+> Go around the room and capture the industries that students are most interested in and have them find at least 3 possible API's that fall within that scope. They should use the following sites to find the corresponding API's
 
 - [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
 -  [Public APIs Directory](http://www.publicapis.com/).
