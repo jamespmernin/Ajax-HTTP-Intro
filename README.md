@@ -63,9 +63,9 @@ Here is a short list of commonly used API's for testing purposes.
 | **[Stocks](http://dev.markitondemand.com/MODApis/)** | http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL |
 | **[Swapi](https://swapi.co/api/people/1/)** | https://swapi.co/api/people/1/ |
 
-#### API's Are No Longer Supported
+#### API's That Now Require A Key
 
-Sometimes support for your favorite API ends.  This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project.
+Sometimes API vendors realize that so many people are using their API that they require a key. This is an important consideration if you intend to build an app based on this API only to find out several weeks\months later that you can longer leverage their data in your project until you've aquired a key.
 
 | API | Sample URL |
 |-----|------------|
