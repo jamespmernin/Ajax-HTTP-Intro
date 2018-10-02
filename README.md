@@ -76,20 +76,6 @@ Go around the room and capture the industries that students are most interested 
 * [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
 * [Public APIs Directory](http://www.publicapis.com/).
 
-## What Is An API Key?
-
-While the majority of APIs are free to use, many of them require an API "key" that identifies the developer requesting data access. This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.
-
-**Try hitting the [Giphy](https://api.giphy.com/) API...**
-
-* No key: [http://api.giphy.com/v1/gifs/search?q=funny+cat](http://api.giphy.com/v1/gifs/search?q=funny+cat)
-
-* With key: [http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC](http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC)
-
-**It is very important that you not push your API keys to a public Github repo.**
-
-> This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
-
 ### Possible APIs
 
 #### Music
@@ -107,13 +93,29 @@ While the majority of APIs are free to use, many of them require an API "key" th
 
 #### Social Media
 
--https://developer.twitter.com/en/docs/tweets/search/overview
+* https://developer.twitter.com/en/docs/tweets/search/overview
 
-### EXERCISE: Your First API Key(s) - 10min
+## What Is An API Key?
+
+While the majority of APIs are free to use, many of them require an API "key" that identifies the developer requesting data access. This is done to regulate usage and prevent abuse. Some APIs also rate-limit developers, meaning they have caps on the free data allowed during a given time period.
+
+**Try hitting the [Giphy](https://api.giphy.com/) API...**
+
+* No key: [http://api.giphy.com/v1/gifs/search?q=funny+cat](http://api.giphy.com/v1/gifs/search?q=funny+cat)
+
+* With key: [http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC](http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC)
+
+**It is very important that you not push your API keys to a public Github repo.**
+
+> This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
+
+### EXERCISE: Your First API Key(s) - 20min
 
 As a developer you will need to figure out how to navigate a site and find what your looking for. No go to the following web site(s) and sign up for an API key(s).
 
-* [Giphy.com](https://giphy.com/)
+* [giphy.com](https://giphy.com/)
+* [openweathermap.com](https://openweathermap.org/)
+* [google maps](https://developers.google.com/maps/documentation/)
 
 ### Why Just Data?
 
