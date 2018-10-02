@@ -176,8 +176,10 @@ You've seen a few examples of JSON and how data can be organized.  Here is the s
 
 Working in groups can you parse the following JSON's data and determine what data is needed to populate the articles on the [GAFeddr](http://gafeedr.surge.sh/) web site?
 
-- [http://gafeedr.surge.sh/](http://gafeedr.surge.sh/)
-- [https://www.reddit.com/top.json](https://www.reddit.com/top.json)
+- 
+- [mashable.com](http://mashable.com/stories.json)
+- [reddit.com](https://www.reddit.com/top.json)
+- [digg.com](http://digg.com/api/news/popular.json)
 
 
 ### Working Locally With JSON
