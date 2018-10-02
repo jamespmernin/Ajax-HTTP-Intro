@@ -439,7 +439,9 @@ fetch('https://swapi.co/api/people')
 
 ### LAB: GET From RandomUser API
 
-Now it's your turn to attempt the same but using the [RANDOMUSER API](https://randomuser.me/)
+Now it's your turn to attempt the same but using the [RANDOMUSER API](https://randomuser.me/).  
+
+Open this [RandomUser Starter CodePen](https://codepen.io/jkeohan/pen/XqXoRB)
 
 **Requirements:**
 
