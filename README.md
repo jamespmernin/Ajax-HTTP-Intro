@@ -245,19 +245,6 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 ## GET Data From an API Using AJAX
 
-### I Do: GET From Swapi
-
-> **Do not follow along for this portion of the lesson.** You will have the opportunity to do it yourself afterwards.
-
-**[Swapi](https://swapi.co/api/people/1/)**
-
-The example we are using will be in demo\swapi folder. It contains a basic HTML/CSS/JS setup. If you open up the HTML in the browser, you will notice that searching for something returns no results.
-
-There are several tools that allow you to make an AJAX request. This lecture focuses on using `fetch` which provides a us a few options:
-
-* low level request
-* high level request
-
 ## Asynchronous vs Synchronous
 
 What is a synchronous operation?
