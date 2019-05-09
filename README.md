@@ -5,8 +5,8 @@
 * Describe what an API is and why we might use one.
 * Understand the format of API data.
 * Explain the common role of JSON on the web.
-* Use `fetch` to make GET requests for data.
-* Describe what a promise is and how to resolve the promise returned from `fetch`
+* Use `axios` library to make GET requests for data.
+* Describe what a promise is and how to resolve the promise returned from `axios`.
 * Render new HTML content using data loaded from an AJAX request.
 
 ## Exercises Labs
@@ -22,7 +22,7 @@
 
 > Basically, an API is a service that provides raw data for public use.
 
-API stands for "Application Program Interface" and technically applies to all of software design. The DOM and `fetch` are actually examples of APIs! Since the explosion of information technology, however, the term now commonly refers to web URLs that can be accessed for raw data.
+API stands for "Application Program Interface" and technically applies to all of software design. The DOM and `axios` are actually examples of APIs! Since the explosion of information technology, however, the term now commonly refers to web URLs that can be accessed for raw data.
 
 APIs publish data for public use. As third-party software developers, we can access an organization's API and use their data within our own applications.
 
