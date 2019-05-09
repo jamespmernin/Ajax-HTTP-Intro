@@ -139,6 +139,8 @@ There are **two** major serialized data formats...
 
 > Remember, JSON is a serialized format. While it may look like an object, it needs to be parsed so we can interact with it as a true Javascript object.
 
+> For more information about [JSON](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)
+
 #### XML
 
 **XML** stands for "eXtensible Markup Language" and is the granddaddy of serialized data formats (itself based on HTML). XML is fat, ugly and cumbersome to parse. It remains a major format, however, due to its legacy usage across the web. You'll probably always favor using a JSON API, if available.
