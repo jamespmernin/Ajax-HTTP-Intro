@@ -197,8 +197,8 @@ Working in groups can you parse the following JSON's data and determine what dat
 
 JSON is the standard format to orgranize data for servers to send and receive data. It's so popular that JS has two methods to package it for sending and receiving:
 
-* JSON.stringify()
-* JSON.parse()
+* [JSON.stringify()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+* [JSON.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
 
 One instance where these methods can be useful is when you need to compare two different arrays or objects.
 
