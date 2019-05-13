@@ -411,7 +411,7 @@ axios.get('/user?ID=12345')
 
 Now it's your turn to attempt the same but using the [RANDOMUSER API](https://randomuser.me/).  
 
-Open this [RandomUser Starter CodePen](https://codepen.io/jkeohan/pen/XqXoRB)
+Open this [RandomUser Starter CodePen](https://codepen.io/Steve_VW/pen/wbzyoV)
 
 **Requirements:**
 
