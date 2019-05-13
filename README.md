@@ -322,7 +322,7 @@ function get(url, callback) {
 
 console.log('Step 1: invoke AJAX function.');
 get(
-  'http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC',
+  'http://api.giphy.com/v1/gifs/search?q=smooth&api_key=2qqBvRkz56JiTUcMbOJbak5VRRLEbV84',
   logResponse,
 );
 
@@ -354,78 +354,57 @@ Promises (which can be [implemented](https://www.promisejs.org/implementing/) in
 
 The most important thing we want to do with an async operation is attach behavior to it by providing it a callback. Promises have a method `then` which takes a callback which the `Promise` calls when it is fulfilled. The interesting thing with promises is that the `then` method returns a new promise which will **resolve** based on the value returned by the callback passed to `then`.
 
-#### Fetch
+#### Axios
 
-```js
-fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
-  .then(function(response) {
-    return response.json();
+```
+// Make a request for a user with a given ID
+axios.get('/user?ID=12345')
+  .then((response) => {
+    // handle success
+    console.log(response);
   })
-  .then(function(json) {
-    console.log(json);
-    return json;
+  .catch((error) => {
+    // handle error
+    console.log(error);
+  })
+  .finally(() => {
+    // always executed
   });
 ```
 
-One of the more confusing things about the `fetch` api is the fact that we have two promises here. The reason for this is `fetch` gives us a lot of control over our requests. We are able to look at the request headers as the request body is loading. The `.json()` method returns a promise representing the loading of the body and the conversion of the body to JSON.
+To use axios we need to include the CDN ```<script src="https://unpkg.com/axios/dist/axios.min.js"></script>```
+or install ```$ npm install axios```.
+
+
+
 
 ##### When Things Go Wrong
 
 Promises also give us the `.catch` method for when something goes wrong.
 
-```js
-fetch('http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(json) {
-    console.log(json);
-    return json;
-  })
-  .catch(function(err) {
-    console.log(err);
-  });
 ```
-
-[Syntax](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch):
-
-```js
-    // much cleaner than XHR. - default is GET
-fetch(url)
-.then(function(res){
-    // do something when promise is fulfilled
-})
-.then(function(res)){
-    // can chain additional promises (Dom manip?)
-})
-.catch(function(err){
-    // do something when promise is rejected (error handler)
-})
-
-fetch(url, {
-  // in here we can add headers, and change other settings
-  method: 'GET'
-})
-.then(function (res) {
-  // do something when promise is fulfilled
-})
-.catch(function (err) {
-  // do something when promise is rejected (error handler)
-})
+// Make a request for a user with a given ID
+axios.get('/user?ID=12345')
+  .then((response) => {
+    // handle success
+    console.log(response);
+  })
+  .catch((error) => {
+    // handle error
+    console.log(error);
+  })
+  .finally(() => {
+    // always executed
+  });
 ```
 
 ### Demo
 
-```js
-fetch('https://swapi.co/api/people')
-  .then(function(response) {
-    console.log('http response', response); // initial response from server
-    return response.json(); // returns json from response after response has been read
+```
+ axios.get(https://randomuser.me/api)
+  .then((res) => {
+    console.log(res)
   })
-  .then(function(jsonData) {
-    // chaining promise
-    console.log(jsonData);
-  });
 ```
 
 ### LAB: GET From RandomUser API
