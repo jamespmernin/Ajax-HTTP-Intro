@@ -415,7 +415,7 @@ Open this [RandomUser Starter CodePen](https://codepen.io/jkeohan/pen/XqXoRB)
 
 **Requirements:**
 
-* Update the **makeCall()** function to make an API call using `fetch` for a random user that passed the results to the getData() function
+* Update the **makeCall()** function to make an API call using `axios` for a random user that passed the results to the getData() function
 * Update the the **getData()** function to map the JSON keys to the corresponding variables
 * Update the **addEventListeners()** function to display the data that corresponds with that icon.
 
