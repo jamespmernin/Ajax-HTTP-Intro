@@ -406,33 +406,12 @@ axios.get('/user?ID=12345')
     console.log(res)
   })
 ```
+### Lab: Continue building out the Random User starter code
 
-### LAB: GET From RandomUser API
-
-Now it's your turn to attempt the same but using the [RANDOMUSER API](https://randomuser.me/).  
-
-Open this [RandomUser Starter CodePen](https://codepen.io/Steve_VW/pen/wbzyoV)
-
-**Requirements:**
-
-* Update the **makeCall()** function to make an API call using `axios` for a random user that passed the results to the getData() function
-* Update the the **getData()** function to map the JSON keys to the corresponding variables
-* Update the **addEventListeners()** function to display the data that corresponds with that icon.
-
-Here is the pseduocode for this assignment
-
-```
-When the page is refreshed.
-  Make an AJAX call to randomuser api for a random user.
-  Update the page with the new info.
-  Make an AJAX call, indicating the proper URL, type and data type.
-    Indicate what should be done after a successful API call.
-    Indicate what should be done after a failed API call.
-```
-
-#### Bonus I
-
-Add a "NEXT" and "PREVIOUS" button to the page.
+* Add Email
+* Add City
+* Add State
+* Add Age
 
 ## Conclusion
 
