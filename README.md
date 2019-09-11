@@ -372,8 +372,8 @@ axios.get('/user?ID=12345')
   });
 ```
 
-To use axios we need to include the CDN ```<script src="https://unpkg.com/axios/dist/axios.min.js"></script>```
-or install ```$ npm install axios```.
+**To use axios we need to include the CDN ```<script src="https://unpkg.com/axios/dist/axios.min.js"></script>```
+or install ```$ npm install axios```.**
 
 
 
