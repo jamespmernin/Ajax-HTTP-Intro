@@ -39,12 +39,15 @@ As we move into building single page applications, now is the perfect time to st
 
 ## API Exploration
 
-**Check out these stock quotes...**
-
-* [http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL)
-* [http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL](http://dev.markitondemand.com/Api/Quote/json?symbol=GOOGL)
+Let's check out this easy to use [Dog API](https://dog.ceo/dog-api/documentation/).
 
 > Does the JSON look unreadable in the browser? If you're using Chrome, install the [JSON View plugin](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en).
+
+This works well for viewing JSON, but what if we have to make a `Post` request?
+
+Let's install an API Client to make life easier. We will be using [Postman](https://www.getpostman.com/downloads/).
+
+Now let's go ahead and use our new tool.
 
 ## Where Do We Find APIs?
 
@@ -74,7 +77,9 @@ Sometimes APIs change their data structure or support structure. This is an impo
 Go around the room and capture the industries that students are most interested in and have them find at least 3 possible APIs that fall within that scope. They should use the following sites to find the corresponding APIs
 
 * [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
-* [Public APIs Directory](http://www.publicapis.com/).
+* [Public API's](https://github.com/public-apis/public-apis)
+
+Be aware of API services such as [RapidAPI](https://rapidapi.com/) that have you enter a your credit card to access. 
 
 ### Possible APIs
 
