@@ -39,7 +39,9 @@ As we move into building single page applications, now is the perfect time to st
 
 ## API Exploration
 
-Let's check out this easy to use [Dog API](https://dog.ceo/dog-api/documentation/).
+Let's check out this easy to read [Dog API](https://dog.ceo/api/breeds/list/all). 
+
+[DogAPI documentation](https://dog.ceo/dog-api/documentation/)
 
 > Does the JSON look unreadable in the browser? If you're using Chrome, install the [JSON View plugin](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en).
 
