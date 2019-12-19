@@ -162,38 +162,84 @@ There are **two** major serialized data formats...
   </user>
 </users>
 ```
-
-**Many APIs publish data in multiple formats, for example...**
-
-* [http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/json?symbol=AAPL)
-* [http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL](http://dev.markitondemand.com/Api/Quote/xml?symbol=AAPL)
-
 ### Parsing JSON
 
-You've seen a few examples of JSON and how data can be organized. Here is the stock quote for Apple that you saw earlier. If this data was stored in an object how would you return the `Low` and `High` values?
-
+You've seen a few examples of JSON and how data can be organized. 
+<details>
+ <summary>Let's look at the RandomUserAPI</summary>
+	
 ```
 {
-	"Data": {
-	"Status": "SUCCESS",
-	"Name": "Apple Inc",
-	"Symbol": "AAPL",
-	"LastPrice": 157.86,
-	"Change": -3.08999999999998,
-	"ChangePercent": -1.91985088536811,
-	"Timestamp": "Thu Aug 17 00:00:00 UTC-04:00 2017",
-	"MarketCap": 815382892080,
-	"Volume": 27940565,
-	"ChangeYTD": 115.82,
-	"ChangePercentYTD": 36.2977033327577,
-	"High": 160.71,
-	"Low": 157.84,
-	"Open": 160.52
-	}
+"results": [
+{
+"gender": "female",
+"name": {
+"title": "Mrs",
+"first": "Stephanie",
+"last": "Carroll"
+},
+"location": {
+"street": {
+"number": 2602,
+"name": "Grange Road"
+},
+"city": "New Ross",
+"state": "South Dublin",
+"country": "Ireland",
+"postcode": 93929,
+"coordinates": {
+"latitude": "26.3172",
+"longitude": "114.7428"
+},
+"timezone": {
+"offset": "+10:00",
+"description": "Eastern Australia, Guam, Vladivostok"
 }
-```
+},
+"email": "stephanie.carroll@example.com",
+"login": {
+"uuid": "e26f43bc-e9f8-43a1-92ab-e4d47c61a2d1",
+"username": "sadwolf369",
+"password": "pervert",
+"salt": "K9GmPfei",
+"md5": "a06b55d71f21b74c5fd417f83d352bd2",
+"sha1": "dce20619ba1ddee0663c55b2e60a1b844e7d5c27",
+"sha256": "51707eba074ccc83a986dd0b4ee7cba5ad103bfcbebf743b41f17482754a8783"
+},
+"dob": {
+"date": "1990-03-25T12:28:04.687Z",
+"age": 29
+},
+"registered": {
+"date": "2007-01-19T23:36:51.380Z",
+"age": 12
+},
+"phone": "061-416-1811",
+"cell": "081-600-1763",
+"id": {
+"name": "PPS",
+"value": "0689539T"
+},
+"picture": {
+"large": "https://randomuser.me/api/portraits/women/42.jpg",
+"medium": "https://randomuser.me/api/portraits/med/women/42.jpg",
+"thumbnail": "https://randomuser.me/api/portraits/thumb/women/42.jpg"
+},
+"nat": "IE"
+}
+],
+"info": {
+"seed": "bb22ddc026fd30c8",
+"results": 1,
+"page": 1,
+"version": "1.3"
+}
+}
 
-### EXERCISE: Parsing JSON - 15min
+```
+</details>
+
+### EXERCISE: Parsing JSON - 5min
 
 Working in groups can you parse the following JSON's data and determine what data is needed to populate the articles on the [GAFeddr](http://gafeedr.surge.sh/) web site?
 
