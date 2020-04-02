@@ -122,7 +122,6 @@ As a developer you will need to figure out how to navigate a site and find what 
 
 * [giphy.com](https://giphy.com/)
 * [openweathermap.com](https://openweathermap.org/)
-* [google maps](https://developers.google.com/maps/documentation/)
 
 ### Why Just Data?
 
