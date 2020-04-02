@@ -238,13 +238,6 @@ You've seen a few examples of JSON and how data can be organized.
 ```
 </details>
 
-### EXERCISE: Parsing JSON - 5min
-
-Working in groups can you parse the following JSON's data and determine what data is needed to populate the articles on the [GAFeddr](http://gafeedr.surge.sh/) web site?
-
-* [http://gafeedr.surge.sh/](http://gafeedr.surge.sh/)
-* [https://www.reddit.com/top.json](https://www.reddit.com/top.json)
-
 ### Working Locally With JSON
 
 JSON is the standard format to orgranize data for servers to send and receive data. It's so popular that JS has two methods to package it for sending and receiving:
