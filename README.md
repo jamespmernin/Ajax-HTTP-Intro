@@ -9,12 +9,6 @@
 * Describe what a promise is and how to resolve the promise returned from `axios`.
 * Render new HTML content using data loaded from an AJAX request.
 
-## Exercises Labs
-
-* EXERCISE: Think, Pair, Research - 15min
-* EXERCISE: Your First API Key(s) - 10min
-* EXERCISE: Parsing JSON - 15min
-* LAB: GET From RandomUser API - 30min
 
 ## Intro To APIs
 
