@@ -302,78 +302,6 @@ What is an asynchronous operation?
 
 * Async: JavaScript environments (i.e. Node.js and browsers) provide built in utilities for doing work that takes time without blocking subsequent calls. The fundemental concept that permits this is the callback, a function provided to the built in utility that the utility knows to call when the long running operation completes. The environment then takes care of executing the callback when the operation completes and the environment is not occupied with other work. To understand "not occupied with other work", consider out coffee shop example. The cashier has two jobs, take orders (sending them to the kitchen) and serve the drinks as they come out. "Not occupied with other work" just means that if the cashier is taking a new order, the kitchen will wait until the cashier is free to ask them to serve the drink.
 
-### Synchronous example:
-
-```js
-/**
- * Synchronous data fetching the old way (using XHR)
- */
-
-console.log('step 1: declare request');
-const request = new XMLHttpRequest();
-
-console.log('Step 2: open request.');
-// `false` makes the request synchronous
-request.open(
-  'GET',
-  'http://api.giphy.com/v1/gifs/search?q=smooth&api_key=dc6zaTOxFJmzC',
-  false,
-);
-
-console.log('Step 3: send request.');
-// The null parameter indicates that no body content is needed for the GET request.
-request.send(null);
-
-////// The code is BLOCKED right here. Nothing will happen
-////// until the response comes back.
-
-console.log('Step 4: log the response text.');
-// servers send back a status code. (200 means your request was okay)
-console.log(request);
-
-console.log('Synchronous data request is complete.');
-```
-
-### Asynchronous Example
-
-```js
-/**
- * Asynchronous data fetching the old way
- */
-
-function logResponse(data) {
-  console.log('response complete ====>', data);
-}
-
-function get(url, callback) {
-  console.log('step 2: declare request.');
-  const request = new XMLHttpRequest();
-
-  console.log('Step 3: open request.');
-  request.open('GET', url, true);
-
-  console.log(
-    'Step 4: set the request state change handler to call the callback when status = 200',
-  );
-  request.onreadystatechange = function() {
-    if (request.readyState === 4 && request.status === 200) {
-      callback(request);
-    }
-  };
-
-  console.log('Step 5: send request.');
-  request.send();
-}
-
-console.log('Step 1: invoke AJAX function.');
-get(
-  'http://api.giphy.com/v1/gifs/search?q=smooth&api_key=2qqBvRkz56JiTUcMbOJbak5VRRLEbV84',
-  logResponse,
-);
-
-console.log('Step 6: End of JS file.');
-```
-
 ### What is a Promise?
 
 Think about the request we made above to giphy.
@@ -446,17 +374,17 @@ axios.get('/user?ID=12345')
 ### Demo
 
 ```
- axios.get(https://randomuser.me/api)
+ axios.get("https://swapi.co/api/people/")
   .then((res) => {
     console.log(res)
   })
 ```
 ### Lab: Continue building out the Random User starter code
 
-* Add Email
-* Add City
-* Add State
-* Add Age
+* Add Name
+* Add Hair
+* Add Height
+* Add ??? Whatever you want
 
 ## Conclusion
 
