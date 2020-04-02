@@ -20,6 +20,12 @@ API stands for "Application Program Interface" and technically applies to all of
 
 APIs publish data for public use. As third-party software developers, we can access an organization's API and use their data within our own applications.
 
+![](https://res.cloudinary.com/briandanger/image/upload/v1558470312/Screen_Shot_2019-05-21_at_4.24.21_PM_jgcf1q.png)
+
+When a user makes one of these requests, the server will "respond" with either a success or error message and by either doing or not doing the action requested. There are a number of factors affecting success that we will discuss at greater length in the future.
+
+We'll need to wait until we learn backend database languages before we can Create, Update, or Delete data from a database; however, fortunately, we can Read existing data with just JavaScript, so for now, we'll focus on how we can us JS to request data from servers that our users can read, watch, and listen to.
+
 <details>
   <summary><strong>Q: Why do we care?</strong></summary>
 
