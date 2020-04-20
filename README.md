@@ -278,11 +278,11 @@ How can we use an API to dynamically manipulate the DOM with the given data? **A
 
 | Type of Request | What's It Do? | An Example URL                                                  |
 | --------------- | ------------- | --------------------------------------------------------------- |
-| `GET`           | Read          | [http://swapi.co/api/planets/](http://swapi.co/api/planets/)    |
-| `POST`          | Create        | [http://swapi.co/api/planets/](http://swapi.co/api/planets/)    |
-| `PUT`           | Update        | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
-| `PATCH`         | Update        | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
-| `DELETE`        | Delete        | [http://swapi.co/api/planets/2/](http://swapi.co/api/planets/2) |
+| `GET`           | Read          | [http://localhost:3000/dogs](http://localhost:3000/dogs)    |
+| `POST`          | Create        | [http://localhost:3000/dogs](http://localhost:3000/dogs)    |
+| `PUT`           | Update        | [http://localhost:3000/dogs/2/](http://localhost:3000/dogs2) |
+| `PATCH`         | Update        | [http://localhost:3000/dogs/2/](http://localhost:3000/dogs/2) |
+| `DELETE`        | Delete        | [http://localhost:3000/dogs/2/](http://localhost:3000/dogs/2) |
 
 <details>
   <summary><strong>Q: Why do you think there is a "2" at the end of the URLs in the last three rows? (Hint: you could replace it with any number)</strong></summary>
@@ -375,7 +375,7 @@ axios.get('/user?ID=12345')
 ### Demo
 
 ```
- axios.get("https://swapi.co/api/people/")
+ axios.get("https://randomuser.me/api/?results=10")
   .then((res) => {
     console.log(res)
   })
