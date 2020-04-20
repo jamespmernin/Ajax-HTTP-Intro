@@ -64,8 +64,7 @@ Here is a short list of commonly used APIs for testing purposes.
 | **[This for That](http://itsthisforthat.com/)**      | http://itsthisforthat.com/api.php?json                                |
 | **[Giphy](https://github.com/Giphy/GiphyAPI)**       | http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC |
 | **[PokeAPI](https://pokeapi.co/)** 		       | https://pokeapi.co/api/v2/pokemon/charizard/
-
- **[Chuck Norris](http://www.icndb.com/api/)**        | http://api.icndb.com/jokes/random
+| **[Chuck Norris](http://www.icndb.com/api/)**        | http://api.icndb.com/jokes/random
 
 #### APIs Are No Longer Supported
 
