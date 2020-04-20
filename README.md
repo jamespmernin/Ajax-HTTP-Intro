@@ -73,6 +73,7 @@ Sometimes APIs change their data structure or support structure. This is an impo
 | API                                     | Sample URL                                             |
 | --------------------------------------- | ------------------------------------------------------ |
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
+| **[Star Wars](https://swapi.co/api)** | https://swapi.co/api/people/ |
 
 ### EXERCISE: Think, Pair, Research - 15min
 
