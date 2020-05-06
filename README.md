@@ -382,10 +382,14 @@ axios.get('/user?ID=12345')
 ```
 ### Lab: Continue building out the Random User starter code
 
-* Add Name
-* Add Hair
-* Add Height
+* Add Age
+* Add City
+* Add Country
 * Add ??? Whatever you want
+
+#### Bonus:
+
+* Style using Flexbox
 
 ## Conclusion
 
