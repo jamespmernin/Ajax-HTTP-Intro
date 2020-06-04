@@ -305,7 +305,7 @@ What is an asynchronous operation?
 
 ### What is a Promise?
 
-Think about the request we made above to giphy.
+Think about our previous API request.
 
 What are the possible outcomes of this request?
 
