@@ -113,7 +113,7 @@ While the majority of APIs are free to use, many of them require an API "key" th
 
 * With key: [http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC](http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC)
 
-**It is very important that you not push your API keys to a public Github repo.**
+**It is very important that you not push your API keys to a public Github repo. We will cover hiding keys later in the course.**
 
 > This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
 
