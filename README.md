@@ -75,7 +75,7 @@ Sometimes APIs change their data structure or support structure. This is an impo
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
 | **[Star Wars](https://swapi.co/api)** | https://swapi.co/api/people/ |
 
-### EXERCISE: Think, Pair, Research - 15min
+### EXERCISE: Think, Pair, Research
 
 Go around the room and capture the industries that students are most interested in and have them find at least 3 possible APIs that fall within that scope. They should use the following sites to find the corresponding APIs
 
@@ -117,7 +117,7 @@ While the majority of APIs are free to use, many of them require an API "key" th
 
 > This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
 
-### EXERCISE: Your First API Key(s) - 20min
+### EXERCISE: Your First API Key(s)
 
 As a developer you will need to figure out how to navigate a site and find what your looking for. Now go to the following web site(s) and sign up for an API key(s).
 
