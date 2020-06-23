@@ -75,7 +75,7 @@ Sometimes APIs change their data structure or support structure. This is an impo
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
 | **[Star Wars](https://swapi.co/api)** | https://swapi.co/api/people/ |
 
-### EXERCISE: Think, Pair, Research - 15min
+### EXERCISE: Think, Pair, Research
 
 Go around the room and capture the industries that students are most interested in and have them find at least 3 possible APIs that fall within that scope. They should use the following sites to find the corresponding APIs
 
@@ -113,11 +113,11 @@ While the majority of APIs are free to use, many of them require an API "key" th
 
 * With key: [http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC](http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC)
 
-**It is very important that you not push your API keys to a public Github repo.**
+**It is very important that you not push your API keys to a public Github repo. We will cover hiding keys later in the course.**
 
 > This is especially true when working with [Amazon Web Services (AWS)](https://aws.amazon.com/). Here's an example of a [stolen key horror story](https://wptavern.com/ryan-hellyers-aws-nightmare-leaked-access-keys-result-in-a-6000-bill-overnight).
 
-### EXERCISE: Your First API Key(s) - 20min
+### EXERCISE: Your First API Key(s)
 
 As a developer you will need to figure out how to navigate a site and find what your looking for. Now go to the following web site(s) and sign up for an API key(s).
 
@@ -305,7 +305,7 @@ What is an asynchronous operation?
 
 ### What is a Promise?
 
-Think about the request we made above to giphy.
+Think about our previous API request.
 
 What are the possible outcomes of this request?
 
@@ -346,7 +346,7 @@ axios.get('/user?ID=12345')
   });
 ```
 
-**To use axios we need to include the CDN ```<script src="https://unpkg.com/axios/dist/axios.min.js"></script>```
+**To use axios, we need to include the CDN ```<script src="https://unpkg.com/axios/dist/axios.min.js"></script>```
 or install ```$ npm install axios```.**
 
 
