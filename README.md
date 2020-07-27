@@ -121,6 +121,7 @@ While the majority of APIs are free to use, many of them require an API "key" th
 
 As a developer you will need to figure out how to navigate a site and find what your looking for. Now go to the following web site(s) and sign up for an API key(s).
 
+* [OMDB](http://www.omdbapi.com/) -- We will be using this API for our HW tonight.
 * [giphy.com](https://giphy.com/)
 * [openweathermap.com](https://openweathermap.org/)
 
