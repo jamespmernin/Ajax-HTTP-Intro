@@ -84,7 +84,7 @@ Go around the room and capture the industries that students are most interested 
 
 Be aware of API services such as [RapidAPI](https://rapidapi.com/) that have you enter a your credit card to access. 
 
-### Possible APIs
+### Example APIs: Note many of these are advanced API's not recommended for beginners.
 
 #### Music
 
