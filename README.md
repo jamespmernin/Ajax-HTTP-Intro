@@ -75,9 +75,9 @@ Sometimes APIs change their data structure or support structure. This is an impo
 | **[OMDB API](http://www.omdbapi.com/)** | http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 |
 | **[Star Wars](https://swapi.co/api)** | https://swapi.co/api/people/ |
 
-### EXERCISE: Think, Pair, Research
+### EXERCISE: API Discovery
 
-Go around the room and capture the industries that students are most interested in and have them find at least 3 possible APIs that fall within that scope. They should use the following sites to find the corresponding APIs
+Let's take a look at some API resources.
 
 * [Programmable Web API Directory](http://www.programmableweb.com/apis/directory)
 * [Public API's](https://github.com/public-apis/public-apis)
