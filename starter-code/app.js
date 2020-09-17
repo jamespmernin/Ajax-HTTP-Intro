@@ -8,10 +8,8 @@ const getData = () => {
   const url = "https://cors-anywhere.herokuapp.com/https://randomuser.me/api/?results=10";
   axios.get(url, headers).then((res) => {
     const response = res.data.results;
-    // console.log(response);
     const peopleDiv = document.querySelector('.people');
     response.forEach((person) => {
-      // console.log(person.picture.large);
       const personDiv = document.createElement('div');
       personDiv.classList = 'person-div';
       peopleDiv.append(personDiv);
